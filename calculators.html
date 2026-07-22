@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIP & Investment Calculators | AGM Wealth</title>
+<meta name="description" content="Free SIP calculator and investment planning tools from AGM Wealth, AMFI-registered Mutual Fund Distributor in Jaipur.">
+<meta name="keywords" content="SIP calculator, investment calculator India, AGM Wealth calculators">
+<link rel="canonical" href="https://www.agmwealth.com/calculators.html">
+<meta property="og:title" content="SIP & Investment Calculators | AGM Wealth">
+<meta property="og:description" content="Free SIP calculator and investment planning tools from AGM Wealth, AMFI-registered Mutual Fund Distributor in Jaipur.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.agmwealth.com/calculators.html">
+<meta property="og:site_name" content="AGM Wealth">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+<div class="utility-bar">
+  <div class="container utility-inner">
+    <span class="utility-tag">AMFI MFD &middot; ARN 124172 &amp; SIFD 124172 &middot; APMI PMS DISTRIBUTOR &middot; APRN 00099 &middot; AIF DISTRIBUTOR &middot; AIF 124172</span>
+    <span class="utility-contact">
+      <a href="mailto:agmwealth1@gmail.com">agmwealth1@gmail.com</a>
+      <span class="sep">&middot;</span>
+      <a href="tel:+918875050447">+91 88750 50447</a>
+    </span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/agm-logo.png" alt="AGM Wealth logo" style="height:52px; width:auto;">
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="about.html" class="">About</a>
+      <a href="solutions.html" class="">Solutions</a>
+      <a href="calculators.html" class="active">Calculators</a>
+      <a href="insights.html" class="">Insights</a>
+      <a href="https://wealthelite.in/client-login" target="_blank" rel="noopener">Client Login</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <a href="https://wa.me/918875050447?text=Hi%20AGM%20Wealth%2C%20I%27d%20like%20to%20start%20a%20conversation." class="btn btn-gold" target="_blank" rel="noopener">Start a Conversation &#8599;</a>
+  </div>
+</header>
+<script>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('main-nav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.innerHTML = open ? '&#10005;' : '&#9776;';
+    });
+  })();
+</script>
+
+<div class="breadcrumb"><div class="container"><a href="index.html">Home</a> / Calculators</div></div>
+
+<section class="section" style="padding-bottom:40px;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Plan With Numbers</span>
+      <h1 style="font-size:clamp(2.2rem,4vw,3.2rem);">See what disciplined investing could look like</h1>
+      <p class="sub">An illustration only - actual returns depend on market performance and are never guaranteed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="calc-card" style="max-width:640px; margin:0 auto;">
+      <span class="eyebrow">SIP Calculator</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0 28px;">
+        <div class="calc-input">
+          <label>Monthly SIP (&#8377;)</label>
+          <input type="number" id="sip-amount" value="10000">
+        </div>
+        <div class="calc-input">
+          <label>Expected annual return (%)</label>
+          <input type="number" id="sip-return" value="12">
+        </div>
+        <div class="calc-input">
+          <label>Time period (years)</label>
+          <input type="number" id="sip-years" value="15">
+        </div>
+      </div>
+      <div class="ledger-rule"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; text-align:center;">
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Invested</span><span id="sip-invested" class="calc-result-num" style="color:var(--ink-700); font-size:1.2rem;">&#8377;0</span></div>
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Est. Gains</span><span id="sip-gains" class="calc-result-num" style="color:var(--success); font-size:1.2rem;">&#8377;0</span></div>
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Total Value</span><span id="sip-total" class="calc-result-num" style="color:var(--ink-900); font-size:1.35rem;">&#8377;0</span></div>
+      </div>
+    </div>
+
+    <div class="calc-card" style="max-width:640px; margin:32px auto 0;">
+      <span class="eyebrow">Lumpsum Calculator</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0 28px;">
+        <div class="calc-input">
+          <label>Lumpsum Amount (&#8377;)</label>
+          <input type="number" id="ls-amount" value="500000">
+        </div>
+        <div class="calc-input">
+          <label>Expected annual return (%)</label>
+          <input type="number" id="ls-return" value="12">
+        </div>
+        <div class="calc-input">
+          <label>Time period (years)</label>
+          <input type="number" id="ls-years" value="10">
+        </div>
+      </div>
+      <div class="ledger-rule"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; text-align:center;">
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Invested</span><span id="ls-invested" class="calc-result-num" style="color:var(--ink-700); font-size:1.2rem;">&#8377;0</span></div>
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Est. Gains</span><span id="ls-gains" class="calc-result-num" style="color:var(--success); font-size:1.2rem;">&#8377;0</span></div>
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Total Value</span><span id="ls-total" class="calc-result-num" style="color:var(--ink-900); font-size:1.35rem;">&#8377;0</span></div>
+      </div>
+    </div>
+
+    <div class="calc-card" style="max-width:640px; margin:32px auto 0;">
+      <span class="eyebrow">Retirement Corpus Calculator</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0 28px;">
+        <div class="calc-input">
+          <label>Current Age</label>
+          <input type="number" id="ret-age" value="35">
+        </div>
+        <div class="calc-input">
+          <label>Retirement Age</label>
+          <input type="number" id="ret-retage" value="60">
+        </div>
+        <div class="calc-input">
+          <label>Monthly Expense Today (&#8377;)</label>
+          <input type="number" id="ret-expense" value="50000">
+        </div>
+        <div class="calc-input">
+          <label>Expected Inflation (%)</label>
+          <input type="number" id="ret-inflation" value="6">
+        </div>
+      </div>
+      <div class="ledger-rule"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:center;">
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Monthly Expense at Retirement</span><span id="ret-future-expense" class="calc-result-num" style="color:var(--ink-700); font-size:1.2rem;">&#8377;0</span></div>
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Corpus Needed (25-yr post-retirement)</span><span id="ret-corpus" class="calc-result-num" style="color:var(--ink-900); font-size:1.35rem;">&#8377;0</span></div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-top:16px; margin-bottom:0;">Illustrative only - assumes corpus needs to last 25 years post-retirement at the same inflated monthly expense, without accounting for post-retirement investment growth.</p>
+    </div>
+
+    <div class="calc-card" style="max-width:640px; margin:32px auto 0;">
+      <span class="eyebrow">Goal Planner</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0 28px;">
+        <div class="calc-input">
+          <label>Goal Amount Today (&#8377;)</label>
+          <input type="number" id="goal-amount" value="2000000">
+        </div>
+        <div class="calc-input">
+          <label>Years to Goal</label>
+          <input type="number" id="goal-years" value="10">
+        </div>
+        <div class="calc-input">
+          <label>Expected Inflation (%)</label>
+          <input type="number" id="goal-inflation" value="6">
+        </div>
+        <div class="calc-input">
+          <label>Expected Return (%)</label>
+          <input type="number" id="goal-return" value="12">
+        </div>
+      </div>
+      <div class="ledger-rule"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; text-align:center;">
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Future Cost of Goal</span><span id="goal-future" class="calc-result-num" style="color:var(--ink-700); font-size:1.2rem;">&#8377;0</span></div>
+        <div><span style="font-size:0.75rem; color:var(--text-muted); display:block;">Required Monthly SIP</span><span id="goal-sip" class="calc-result-num" style="color:var(--ink-900); font-size:1.35rem;">&#8377;0</span></div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); margin-top:16px; margin-bottom:0;">Common goals: a child's education or marriage, a home down payment, a car - set the amount in today's terms and this adjusts for inflation.</p>
+    </div>
+
+    <div style="max-width:640px; margin:56px auto 0; text-align:center;">
+      <p style="color:var(--text-muted); font-size:0.92rem;">More calculators - lumpsum growth, retirement corpus, and goal-based planning - are coming soon. Want a specific one? Ask us on WhatsApp.</p>
+      <a href="https://wa.me/918875050447?text=Hi%20AGM%20Wealth%2C%20I%27d%20like%20a%20calculator%20for..." class="btn-text" target="_blank" rel="noopener">Request a Calculator &#8599;</a>
+    </div>
+  </div>
+</section>
+
+<div class="compliance-strip">
+  <div class="container">
+    <div class="reg-grid">
+      <div class="ledger-row ledger-row-dark"><span class="lr-label">ARN (Mutual Funds)</span><span class="lr-dots"></span><span class="lr-value">124172 &middot; Valid 20-Jun-2026 to 19-Jun-2029</span></div>
+      <div class="ledger-row ledger-row-dark"><span class="lr-label">SIFD</span><span class="lr-dots"></span><span class="lr-value">124172 &middot; Valid 09-Sep-2025 to 08-Sep-2028</span></div>
+      <div class="ledger-row ledger-row-dark"><span class="lr-label">APRN (PMS)</span><span class="lr-dots"></span><span class="lr-value">00099 &middot; Valid 10-Oct-2026 to 09-Oct-2029*</span></div>
+      <div class="ledger-row ledger-row-dark"><span class="lr-label">AIF Distribution</span><span class="lr-dots"></span><span class="lr-value">Under ARN 124172 &middot; Valid 20-Jun-2026 to 19-Jun-2029</span></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/agm-logo.png" alt="AGM Wealth logo" style="height:44px; width:auto; margin-bottom:14px; filter:brightness(0) invert(1) opacity(0.9);">
+        <p style="color:#C6D1C9; font-size:0.9rem; max-width:32ch;">An AMFI-registered Mutual Fund Distributor based in Jaipur, helping individuals and families build disciplined, goal-based investment portfolios.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="calculators.html">Calculators</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Compliance</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="commission-disclosures.html">Commission Disclosures</a>
+        <a href="code-of-conduct.html">Code of Conduct</a>
+        <a href="grievance-redressal.html">Grievance Redressal</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+        <a href="risk-disclaimer.html">Risk Disclaimer</a>
+      </div>
+      <div>
+        <h4>Get in Touch</h4>
+        <a href="tel:+918875050447">+91 88750 50447</a>
+        <a href="mailto:agmwealth1@gmail.com">agmwealth1@gmail.com</a>
+        <a href="https://wa.me/918875050447" target="_blank" rel="noopener">WhatsApp Us</a>
+        <p style="color:#9BAAA1; font-size:0.85rem; margin-top:8px;">19, Second Floor, S-1, Heeranagar-A,<br>Jaipur, Rajasthan 302021, India</p>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p><strong style="color:#fff;">AGM Wealth</strong> is an AMFI-registered Mutual Fund Distributor (ARN-124172). AGM Wealth is a distributor, not an investment adviser - we do not provide investment advisory services, and distribution registration is not an assurance of returns.</p>
+      <p>Mutual Fund investments are subject to market risks. Please read all scheme-related documents (SID/SAI/KIM) carefully before investing. Past performance is not indicative of future returns. There is no guarantee that the investment objective of any scheme will be achieved. Please evaluate exit loads, total expense ratio, and other costs before investing, and consider your specific investment requirements before choosing a fund or designing a portfolio.</p>
+      <p>We deal in Regular Plans of mutual fund schemes and earn trail commission from AMCs as disclosed on our <a href="commission-disclosures.html" style="color:#D9C48F;">Commission Disclosures</a> page. Direct Plans, which carry a lower expense ratio, are available to investors directly through AMCs; we do not earn commission on Direct Plan investments.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <span style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/agm-logo.png" alt="AGM Wealth" style="height:22px; width:auto; filter:brightness(0) invert(1) opacity(0.85);">
+        &copy; <span id="yr"></span> AGM Wealth. All rights reserved.
+      </span>
+      <span>AMFI Reg. No. ARN-124172</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/918875050447" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#128172;</a>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="scripts/main.js"></script>
+
+<script src="scripts/render-content.js"></script>
+</body>
+</html>
