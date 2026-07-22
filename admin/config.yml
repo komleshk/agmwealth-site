@@ -1,0 +1,50 @@
+# AGM Wealth CMS configuration
+# Docs: https://decapcms.org/docs/configuration-options/
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <-- REPLACE before deploying
+  branch: main                                 # <-- change to "master" if that's your default branch
+  base_url: https://YOUR-OAUTH-WORKER.workers.dev   # <-- REPLACE with your deployed OAuth Worker URL
+  auth_endpoint: auth
+
+# Where uploaded images (e.g. future testimonial photos) get stored
+media_folder: "assets/uploads"
+public_folder: "assets/uploads"
+
+collections:
+  - name: "insights"
+    label: "Insights Articles"
+    files:
+      - name: "articles"
+        label: "All Articles"
+        file: "content/insights.json"
+        fields:
+          - label: "Articles"
+            name: "articles"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Category", name: "category", widget: "string", hint: "e.g. Mutual Funds, PMS · AIF · SIF, Costs & Fees" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Body Paragraphs"
+                name: "body"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              - { label: "Disclaimer (small print at the end)", name: "disclaimer", widget: "string", required: false }
+
+  - name: "testimonials"
+    label: "Client Testimonials"
+    files:
+      - name: "testimonials"
+        label: "All Testimonials"
+        file: "content/testimonials.json"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{name}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Name or Initials", name: "name", widget: "string", hint: "Use initials only unless the client has consented to their full name being published" }
+              - { label: "Detail (e.g. 'Client since 2021, SIP investor')", name: "meta", widget: "string" }

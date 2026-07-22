@@ -1,0 +1,38 @@
+{
+  "articles": [
+    {
+      "category": "Mutual Funds",
+      "title": "SIP vs. Lumpsum: what the data actually says",
+      "body": [
+        "The SIP-versus-lumpsum debate usually gets framed as a contest - as if one approach is objectively superior. It isn't. The honest answer is that the \"right\" choice depends far more on where your money is sitting today than on any market forecast.",
+        "If you're investing money you earn progressively - a monthly salary, say - a SIP isn't really a strategy choice at all; it's the only option that matches how the money arrives. The real comparison only applies when you already have a lump sum in hand: an inheritance, a bonus, or proceeds from selling an asset.",
+        "In that specific case, research across market cycles shows lumpsum investing tends to outperform staggering the same amount via SIP over 6-12 months, simply because markets rise more often than they fall, and time in the market compounds from day one. But that average masks the real risk: lumpsum investing is far less forgiving if you invest right before a downturn, and the emotional cost of watching a large sum drop in month one is genuinely harder to sit through than a staggered entry.",
+        "A middle path many investors find comfortable: split a lump sum, deploy a portion immediately, and stagger the rest over 3-6 months into the same funds you'd have chosen for lumpsum anyway. This isn't a mathematically optimal formula - it's a way of trading a small amount of expected return for a meaningfully smoother ride, which for most people is a fair trade."
+      ],
+      "disclaimer": "This is general educational content, not a recommendation for your specific situation. Mutual Fund investments are subject to market risks."
+    },
+    {
+      "category": "PMS · AIF · SIF",
+      "title": "Understanding PMS vs. AIF vs. SIF",
+      "body": [
+        "These three product categories get mentioned in the same breath so often that it's easy to assume they're variations on one idea. They're not - each solves a different structural problem, and mixing them up leads to mismatched expectations.",
+        "PMS (Portfolio Management Services) is the most straightforward of the three: a professional manager runs a portfolio of directly-held stocks and bonds in your own name, following a stated strategy. You own the individual securities, not units in a pooled fund - which matters for taxation and transparency, but also means the portfolio's performance is entirely tied to one manager's specific calls.",
+        "AIF (Alternative Investment Fund) is a SEBI-regulated pooled vehicle - closer to a mutual fund in structure, but built for strategies mutual fund rules don't permit: private equity, structured credit, long-short equity, or real assets. AIFs are split into Category I, II, and III based on the type of strategy and leverage involved, and typically carry lock-in periods that PMS and mutual funds don't.",
+        "SIF (Specialised Investment Fund) is the newest of the three, sitting deliberately between mutual funds and PMS/AIF. It allows more flexible, less constrained strategies than a traditional mutual fund scheme, but at a lower minimum investment than PMS or AIF - designed for investors who've outgrown plain-vanilla funds without yet meeting higher-ticket thresholds.",
+        "The practical takeaway: the right structure follows from your ticket size, liquidity needs, and how much manager-specific concentration risk you're comfortable holding - not from which product happens to be trending in conversation."
+      ],
+      "disclaimer": "General educational content. Each product carries distinct risk, cost, and eligibility considerations - evaluate suitability before investing."
+    },
+    {
+      "category": "Costs & Fees",
+      "title": "Reading a scheme's expense ratio correctly",
+      "body": [
+        "A 1.5% expense ratio sounds like a small, almost forgettable number - a rounding error next to a fund's returns. Compounded over 20 years, that same 1.5% can quietly consume a meaningful share of your final corpus, which is exactly why it's worth reading carefully rather than skimming past it.",
+        "The first thing to understand is that expense ratio isn't comparable across categories. An index fund charging 0.3% and an actively managed small-cap fund charging 1.9% aren't competing on the same axis - one is paying for market replication, the other for a manager's research and stock-picking process. The right comparison is always within the same category: index fund to index fund, small-cap to small-cap.",
+        "Second, expense ratio scales inversely with fund size in India's regulatory structure - SEBI caps allow lower expense ratios as a scheme's assets under management grow. A fund that looked expensive at launch may look considerably more reasonable a few years later, purely from having grown larger, with no change in strategy.",
+        "Third, and often missed: expense ratio is already reflected in the NAV you see daily. It's not a separate bill - it's deducted before the NAV is published. That means comparing two funds' trailing returns already nets out their respective costs, so the expense ratio matters less as a standalone red flag and more as one input into whether a fund's process justifies what it charges relative to peers."
+      ],
+      "disclaimer": "General educational content, not a recommendation of any specific scheme. Please read Scheme Information Documents carefully before investing."
+    }
+  ]
+}

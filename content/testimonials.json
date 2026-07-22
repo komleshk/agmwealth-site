@@ -1,0 +1,14 @@
+{
+  "testimonials": [
+    {
+      "quote": "Add a real client quote here - e.g. how AGM Wealth helped with SIP planning or a portfolio review.",
+      "name": "Client initials or role",
+      "meta": "Client since / investment type"
+    },
+    {
+      "quote": "Add a second real client quote here.",
+      "name": "Client initials or role",
+      "meta": "Client since / investment type"
+    }
+  ]
+}
