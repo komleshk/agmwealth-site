@@ -3,9 +3,9 @@
 
 backend:
   name: github
-  repo: komleshk/agmwealth-site   # <-- REPLACE before deploying
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <-- REPLACE before deploying
   branch: main                                 # <-- change to "master" if that's your default branch
-  base_url: https://agmwealth-cms-login.spamjunkblocklisted.workers.dev   # <-- REPLACE with your deployed OAuth Worker URL
+  base_url: https://YOUR-OAUTH-WORKER.workers.dev   # <-- REPLACE with your deployed OAuth Worker URL
   auth_endpoint: auth
 
 # Where uploaded images (e.g. future testimonial photos) get stored
