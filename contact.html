@@ -116,12 +116,15 @@
       <span class="eyebrow">Send a message</span>
       <h2>Prefer to write in? Drop us a note</h2>
     </div>
-    <form class="card" onsubmit="event.preventDefault(); alert('Thanks - connect this form to an email service (e.g. Formspree, or a Google Sheet via Apps Script) to receive submissions. It is not yet wired to send anywhere.');">
+    <form class="card" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+      <input type="hidden" name="access_key" value="PASTE-YOUR-WEB3FORMS-ACCESS-KEY-HERE">
+      <input type="hidden" name="subject" value="New enquiry from AGM Wealth website">
+      <input type="hidden" name="from_name" value="AGM Wealth Website">
       <div style="display:grid; gap:16px;">
-        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Name</label><input type="text" required style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
-        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Phone</label><input type="tel" required style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
+        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Name</label><input type="text" name="name" required style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
+        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Phone</label><input type="tel" name="phone" required style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
         <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">I'm interested in</label>
-          <select style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;">
+          <select name="interest" style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;">
             <option>Mutual Funds / SIP</option>
             <option>Portfolio Management Services (PMS)</option>
             <option>Alternative Investment Funds (AIF)</option>
@@ -130,7 +133,7 @@
             <option>Insurance</option>
           </select>
         </div>
-        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Message (optional)</label><textarea rows="3" style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px; font-family:inherit;"></textarea></div>
+        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Message (optional)</label><textarea rows="3" name="message" style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px; font-family:inherit;"></textarea></div>
         <button type="submit" class="btn btn-primary">Send Message</button>
       </div>
     </form>
