@@ -311,7 +311,7 @@ p { margin-bottom: 1rem; }
 .ledger-row:first-child { border-top: 1px solid rgba(34,54,43,0.12); }
 .ledger-row .lr-label { color: var(--ink-700); font-weight: 600; white-space: nowrap; }
 .ledger-row .lr-dots { flex: 1; border-bottom: 1px dotted rgba(34,54,43,0.35); margin-bottom: 4px; }
-.ledger-row .lr-value { color: var(--text-muted); white-space: nowrap; }
+.ledger-row .lr-value { color: var(--text-muted); white-space: normal; text-align: right; }
 .ledger-row-dark { border-color: rgba(217,196,143,0.22); }
 .ledger-row-dark .lr-label { color: var(--gold-300); }
 .ledger-row-dark .lr-dots { border-color: rgba(217,196,143,0.3); }
