@@ -4,7 +4,7 @@
   var CFG = {
     phone: '918875050447',
     formEndpoint: '',   // e.g. https://api.web3forms.com/submit (leave empty = forms send via WhatsApp)
-    accessKey: '',      // paste your free Web3Forms access key here (web3forms.com) to receive forms by email
+    accessKey: '52dbfcfe-6eac-4c20-a2f5-15c5043a57b9',      // paste your free Web3Forms access key here (web3forms.com) to receive forms by email
     bookingLink: '',    // Google Calendar / Calendly link; empty = in-page slot request form
     kycLink: '',        // your paperless KYC link; empty = KYC link is sent on WhatsApp
     appLink: ''         // app download link (Play Store / App Store page); empty = QR code only
