@@ -114,7 +114,7 @@
   '<p class="cv-note">Your details are used only to respond to this request.</p></div><div class="cv-card">' + formHTML('lead') + '</div></div></section>' +
 
   '<section class="cv-sec" id="founder"><div class="container cv-founder"><div class="cv-mono" aria-hidden="true">KM</div><div><h2>Kamlesh Mandowara</h2>' +
-  '<p style="max-width:62ch">Founder, AGM Wealth. 24+ years in banking and financial services, including time as Branch Manager at Kotak Mahindra Bank, and a trusted distributor for hundreds of Rajasthan families.</p>' +
+  '<p style="max-width:62ch">Founder, AGM Wealth. 24+ years in banking and financial services, including <strong>Investment Specialist with ICICI Bank Wealth</strong> and Branch Manager at Kotak Mahindra Bank, and a trusted distributor for hundreds of families across India and around the world.</p>' +
   '<blockquote>Wealth is preserved by patience and process. Our job is to keep you clear on what you own, why you own it and what it costs.</blockquote>' +
   '<ul class="cv-creds"><li>AMFI ARN-124172</li><li>APMI APRN 00099</li><li>AIF Distributor 124172</li><li>SIF SIFD-124172</li></ul></div></div></section>';
   var anchor = $('#approach'); if (anchor) anchor.insertAdjacentHTML('afterend', html);
