@@ -4,11 +4,12 @@
   var CFG = {
     phone: '918875050447',
     formEndpoint: '',   // e.g. https://api.web3forms.com/submit (leave empty = forms send via WhatsApp)
-    accessKey: '',      // Web3Forms access key, if used
+    accessKey: '',      // paste your free Web3Forms access key here (web3forms.com) to receive forms by email
     bookingLink: '',    // Google Calendar / Calendly link; empty = in-page slot request form
     kycLink: '',        // your paperless KYC link; empty = KYC link is sent on WhatsApp
     appLink: ''         // app download link (Play Store / App Store page); empty = QR code only
   };
+  var EP = function () { return CFG.accessKey ? 'https://api.web3forms.com/submit' : CFG.formEndpoint; };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var wa = function (t) { return 'https://wa.me/' + CFG.phone + '?text=' + encodeURIComponent(t); };
@@ -52,7 +53,8 @@
     });
     return ok;
   }
-  function done(form, k) {
+  function done(form, k, link) {
+    if (link) { form.outerHTML = '<div class="cv-ok" role="status"><p><strong>Almost done. Tap Send in WhatsApp to deliver your details to us.</strong></p><p><a class="btn btn-primary" href="' + link + '" target="_blank" rel="noopener">Open WhatsApp</a></p></div>'; return; }
     var extra = (k === 'onboard' && CFG.kycLink) ? '<p><a class="btn btn-primary" href="' + CFG.kycLink + '" target="_blank" rel="noopener">Continue to Secure KYC</a></p>' : (k === 'onboard' ? '<p>We will WhatsApp you the secure KYC link within one business day.</p>' : '');
     form.outerHTML = '<div class="cv-ok" role="status"><p><strong>' + OK[k] + '</strong></p>' + extra + '</div>';
   }
@@ -67,10 +69,10 @@
     var data = {}; new FormData(form).forEach(function (v, n) { if (n !== 'website' && n !== 'consent') data[n] = v; });
     if (form.website && form.website.value) return done(form, k);
     var msg = 'Hello AGM Wealth, ' + ({ lead: 'I would like a portfolio review.', callback: 'please call me back.', book: 'I would like to book a 15-minute conversation.', onboard: 'I would like to start paperless onboarding.' })[k] + '\n' + Object.keys(data).map(function (n) { return n + ': ' + data[n]; }).join('\n');
-    if (!CFG.formEndpoint) { window.open(wa(msg), '_blank'); return done(form, k); }
+    if (!EP()) { window.open(wa(msg), '_blank'); return done(form, k, wa(msg)); }
     var b = $('button[type=submit]', form); b.disabled = true; b.textContent = 'Sending…';
     data.subject = 'AGM Wealth website: ' + k; if (CFG.accessKey) data.access_key = CFG.accessKey;
-    fetch(CFG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
+    fetch(EP(), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
       .then(function (r) { if (!r.ok) throw 0; done(form, k); })
       .catch(function () { b.disabled = false; b.textContent = FORMS[k].btn; alert('Could not send right now. Please WhatsApp us on 88750 50447.'); });
   });
