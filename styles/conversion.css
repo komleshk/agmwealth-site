@@ -49,3 +49,4 @@ button.btn{font:inherit;cursor:pointer}
 @media(max-width:768px){body{padding-bottom:70px}.cv-grid,.cv-founder{grid-template-columns:1fr;gap:24px}.cv-steps{grid-template-columns:1fr}.cv-steps li{border-right:0;border-bottom:1px solid var(--line-on-dark)}.cv-sec{padding:56px 0}}
 .cv-app{display:flex;gap:24px;align-items:center;margin-top:32px;padding:20px;border:1px solid var(--line-on-dark);border-radius:var(--radius)}.cv-app img{border-radius:var(--radius);flex:none;height:auto}.cv-app h3{color:var(--white);font:600 1.15rem var(--font-display);margin-bottom:6px}.cv-app p{max-width:46ch}
 @media(max-width:768px){.cv-app{flex-direction:column;align-items:flex-start}}
+[hidden]{display:none!important}
