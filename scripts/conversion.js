@@ -74,7 +74,10 @@
     var msg = 'Hello AGM Wealth, ' + ({ lead: 'I would like a portfolio review.', callback: 'please call me back.', book: 'I would like to book a 15-minute conversation.', onboard: 'I would like to start paperless onboarding.' })[k] + '\n' + Object.keys(data).map(function (n) { return n + ': ' + data[n]; }).join('\n');
     if (!EP()) { window.open(wa(msg), '_blank'); return done(form, k, wa(msg)); }
     var b = $('button[type=submit]', form); b.disabled = true; b.textContent = 'Sending…';
-    data.subject = 'AGM Wealth website: ' + k; if (CFG.accessKey) data.access_key = CFG.accessKey;
+    data.from_name = 'AGM Wealth Website';
+data.subject = 'New enquiry from AGM Wealth website (' + k + ')';
+if (CFG.accessKey) data.access_key = CFG.accessKey;
+
     fetch(EP(), { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
       .then(function (r) { if (!r.ok) throw 0; done(form, k); })
       .catch(function () { b.disabled = false; b.textContent = FORMS[k].btn; alert('Could not send right now. Please WhatsApp us on 88750 50447.'); });
