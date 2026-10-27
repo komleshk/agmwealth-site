@@ -177,18 +177,15 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   bar.innerHTML = '<button type="button" id="cvwa">Chat on WhatsApp</button><button type="button" data-open="callback">Request Call Back</button>';
   document.body.appendChild(bar);
   $('#cvwa').addEventListener('click', function () { window.open(wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.'), '_blank'); });
-    /* ---- header nav link, NRI card, calculators, insights ---- */
+      /* ---- header links, NRI card, calculators, insights ---- */
   var nav = $('#main-nav');
   if (nav) {
     var calc = $('a[href="calculators.html"]', nav);
     if (calc && !$('a[href="cas-analyzer.html"]', nav)) {
       calc.insertAdjacentHTML('afterend', '<a href="cas-analyzer.html">Portfolio Analyzer</a>');
     }
-    // Sleek link in menu (opens the onboarding modal)
-    if (!$('.cv-navkyc', nav)) {
-      nav.insertAdjacentHTML('beforeend', '<a href="#" class="cv-navkyc" data-open="onboard" style="color:var(--gold-600);font-weight:600;">Open Account / KYC</a>');
-    }
   }
+
 
   var more = $('a.btn-text[href="solutions.html"]');
   if (more && anchor) more.insertAdjacentHTML('beforebegin', '<div class="cv-nri"><h3>NRI Investors</h3><p>Mutual funds and PMS for eligible NRIs across the GCC, UK, Singapore and other regions, subject to FEMA guidelines and each provider’s eligibility rules. US and Canada-resident investors can invest with select fund houses that accept online investments from these countries, subject to FATCA compliance, additional documentation and each fund house’s own conditions. Digital onboarding from anywhere.</p></div>');
