@@ -89,7 +89,19 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   document.body.appendChild(dlg);
   dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.classList.contains('x')) dlg.close(); });
   var TITLES = { onboard: ['Start paperless onboarding', 'Two quick steps. We handle the rest digitally.'], book: ['Book a 15-minute conversation', 'Pick a convenient slot and we will confirm on WhatsApp.'], callback: ['Request a call back', 'Share your number and we will call you.'] };
-  var STORES = function () { return '<a class="btn btn-primary" href="' + CFG.playLink + '" target="_blank" rel="noopener">Download on Google Play Store</a><a class="btn btn-ghost" href="' + CFG.iosLink + '" target="_blank" rel="noopener">Download on Apple App Store</a>'; };
+  var STORES = function () {
+  return '<div class="cv-stores-wrap">' +
+    '<a class="cv-store-badge" href="' + CFG.playLink + '" target="_blank" rel="noopener">' +
+      '<svg width="22" height="24" viewBox="0 0 24 24" fill="none"><path d="M3.609 1.814L13.793 12 3.609 22.186c-.368-.37-.59-.893-.59-1.474V3.288c0-.581.222-1.104.59-1.474z" fill="#00E676"/><path d="M17.186 8.607L13.793 12l3.393 3.393 3.824-2.193c.773-.443.773-1.957 0-2.4L17.186 8.607z" fill="#FFD600"/><path d="M3.609 1.814L13.793 12 17.186 8.607 5.787 2.067c-.672-.385-1.517-.282-2.178-.253z" fill="#00B0FF"/><path d="M3.609 22.186L13.793 12l3.393 3.393-11.399 6.54c-.661.029-1.506.132-2.178-.253z" fill="#FF3D00"/></svg>' +
+      '<span class="cv-store-txt"><small>GET IT ON</small><strong>Google Play</strong></span>' +
+    '</a>' +
+    '<a class="cv-store-badge" href="' + CFG.iosLink + '" target="_blank" rel="noopener">' +
+      '<svg width="22" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.65-1.06 1.72-.93 2.74 1.01.08 2.01-.49 2.63-1.24z"/></svg>' +
+      '<span class="cv-store-txt"><small>Download on the</small><strong>App Store</strong></span>' +
+    '</a>' +
+  '</div>';
+};
+
   function appModal() {
     var guided = wa('Hi Kamlesh, I would like to open an investment account and complete my paperless KYC with AGM Wealth.');
     $('.b', dlg).innerHTML = '<h3>Complete Paperless KYC on the AGM Wealth App</h3><p class="cv-note" style="margin:0 0 18px">Open your account securely on the AGM Wealth mobile app (PAN + Aadhaar required).</p>' +
