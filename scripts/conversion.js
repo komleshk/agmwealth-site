@@ -1,12 +1,15 @@
 /* AGM Wealth - conversion layer: tools, forms, onboarding, sticky bar.
    EDIT ONLY THE SETTINGS BELOW. */
 (function () {
+  if (window.__agmcv) return; window.__agmcv = 1;
   var CFG = {
     phone: '918875050447',
     formEndpoint: '',   // e.g. https://api.web3forms.com/submit (leave empty = forms send via WhatsApp)
     accessKey: '52dbfcfe-6eac-4c20-a2f5-15c5043a57b9',      // paste your free Web3Forms access key here (web3forms.com) to receive forms by email
     bookingLink: '',    // Google Calendar / Calendly link; empty = in-page slot request form
     kycLink: '',        // your paperless KYC link; empty = KYC link is sent on WhatsApp
+    playLink: 'https://play.google.com/store/apps/details?id=com.agmwealth.agmwealth&hl=en',
+    iosLink: 'https://apps.apple.com/us/app/agm-wealth/id6618147710',
     appLink: ''         // app download link (Play Store / App Store page); empty = QR code only
   };
   var EP = function () { return CFG.accessKey ? 'https://api.web3forms.com/submit' : CFG.formEndpoint; };
@@ -83,7 +86,16 @@
   document.body.appendChild(dlg);
   dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.classList.contains('x')) dlg.close(); });
   var TITLES = { onboard: ['Start paperless onboarding', 'Two quick steps. We handle the rest digitally.'], book: ['Book a 15-minute conversation', 'Pick a convenient slot and we will confirm on WhatsApp.'], callback: ['Request a call back', 'Share your number and we will call you.'] };
+  var STORES = function () { return '<a class="btn btn-primary" href="' + CFG.playLink + '" target="_blank" rel="noopener">Download on Google Play Store</a><a class="btn btn-ghost" href="' + CFG.iosLink + '" target="_blank" rel="noopener">Download on Apple App Store</a>'; };
+  function appModal() {
+    var guided = wa('Hi Kamlesh, I would like to open an investment account and complete my paperless KYC with AGM Wealth.');
+    $('.b', dlg).innerHTML = '<h3>Complete Paperless KYC on the AGM Wealth App</h3><p class="cv-note" style="margin:0 0 18px">Open your account securely on the AGM Wealth mobile app (PAN + Aadhaar required).</p>' +
+      '<div class="cv-desk" style="text-align:center"><img src="assets/app-qr.png" width="200" height="200" alt="QR code to download the AGM Wealth app" style="max-width:100%;height:auto"><p>Scan with your phone camera to download the AGM Wealth App on Google Play / App Store.</p><p class="cv-note"><a href="' + guided + '" target="_blank" rel="noopener">Prefer guided help? Chat on WhatsApp with Kamlesh (+91 88750 50447)</a></p></div>' +
+      '<div class="cv-mob">' + STORES() + '</div><hr style="margin:20px 0;border:0;border-top:1px solid var(--line)"><a class="btn btn-ghost" style="display:block;text-align:center" href="' + guided + '" target="_blank" rel="noopener">Request Assisted Onboarding on WhatsApp</a>';
+    dlg.showModal();
+  }
   function openM(k) {
+    if (k === 'onboard') return appModal();
     if (k === 'book' && CFG.bookingLink) { window.open(CFG.bookingLink, '_blank'); return; }
     $('.b', dlg).innerHTML = '<h3>' + TITLES[k][0] + '</h3><p class="cv-note" style="margin:0 0 18px">' + TITLES[k][1] + '</p>' + formHTML(k);
     dlg.showModal();
@@ -106,7 +118,7 @@
   '<li><h3>Quick discovery &amp; paperless KYC</h3><p>Complete 100% digital KYC with your PAN and Aadhaar, from wherever you are.</p></li>' +
   '<li><h3>Discuss options &amp; choose</h3><p>We explain the risks, costs and features of mutual funds, PMS, AIF and fixed income, so you can choose what fits your own plan.</p></li>' +
   '<li><h3>Track &amp; review</h3><p>24/7 portfolio access through our investor app, with periodic review conversations.</p></li></ol>' +
-  '<div class="cv-app"><img src="assets/app-qr.png" alt="QR code to download the AGM Wealth mobile app" width="170" height="170" loading="lazy"><div><h3>Get the AGM Wealth app</h3><p>Track your portfolio 24/7. Scan the QR code with your phone camera to download the app.</p>' + (CFG.appLink ? '<p><a class="btn btn-gold" href="' + CFG.appLink + '" target="_blank" rel="noopener">Download the App</a></p>' : '') + '</div></div>' +
+  '<div class="cv-app"><img src="assets/app-qr.png" alt="QR code to download the AGM Wealth mobile app" width="170" height="170" loading="lazy"><div><h3>Get the AGM Wealth app</h3><p>Track your portfolio 24/7. Scan the QR code with your phone camera to download the app.</p>' + '<p class="cv-mob">' + STORES() + '</p>' + '</div></div>' +
   '<p style="margin-top:28px"><button type="button" class="btn btn-gold" data-open="onboard">Start Paperless Onboarding</button></p></div></section>' +
 
   '<section class="cv-sec cv-alt" id="portfolio-review"><div class="container cv-grid"><div><h2>Get a Confidential Review of Your Portfolio</h2>' +
@@ -133,7 +145,7 @@
       '<p style="margin-top:16px;font-weight:600;color:var(--ink-900)">Cost of delay</p>' + rows +
       '<p class="cv-note">Illustration only: assumes a constant annual return compounded monthly. Actual returns vary and are not guaranteed. ' + DISC + '</p>';
   }
-  $$('#s1,#s2,#s3').forEach(function (s) { s.addEventListener('input', sip); }); sip();
+  $$('#s1,#s2,#s3').forEach(function (s) { s.addEventListener('input', sip); }); if (anchor) sip();
 
   /* eligibility guide */
   var Q = [
@@ -155,11 +167,35 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-a]'); if (a) { ans.push(+a.dataset.a); scr(); }
     if (e.target.id === 'rs') { ans = []; scr(); }
-  }); scr();
+  }); if (anchor) scr();
 
   /* sticky bar */
   var bar = document.createElement('div'); bar.className = 'cv-bar';
   bar.innerHTML = '<button type="button" id="cvwa">Chat on WhatsApp</button><button type="button" data-open="callback">Request Call Back</button>';
   document.body.appendChild(bar);
   $('#cvwa').addEventListener('click', function () { window.open(wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.'), '_blank'); });
+  /* ---- header button, nav link, NRI card, calculators, insights ---- */
+  var nav = $('#main-nav');
+  if (nav) {
+    var calc = $('a[href="calculators.html"]', nav);
+    if (calc && !$('a[href="cas-analyzer.html"]', nav)) calc.insertAdjacentHTML('afterend', '<a href="cas-analyzer.html">Portfolio Analyzer</a>');
+    nav.insertAdjacentHTML('beforeend', '<a href="#" class="cv-navkyc" data-open="onboard">Open Account / Digital KYC</a>');
+    var gb = $('.header-inner > a.btn-gold');
+    if (gb) gb.insertAdjacentHTML('beforebegin', '<button type="button" class="btn btn-primary cv-hdrbtn" data-open="onboard">Open Account / Digital KYC</button>');
+  }
+  var more = $('a.btn-text[href="solutions.html"]');
+  if (more && anchor) more.insertAdjacentHTML('beforebegin', '<div class="cv-nri"><h3>NRI Investors</h3><p>Mutual funds and PMS for eligible NRIs across the GCC, UK, Singapore and other regions, subject to FEMA guidelines and each provider’s eligibility rules. US and Canada-resident investors can invest with select fund houses that accept online investments from these countries, subject to FATCA compliance, additional documentation and each fund house’s own conditions. Digital onboarding from anywhere.</p></div>');
+  $$('.calc-card').forEach(function (c) {
+    if (!c.querySelector('[id^=sip-],[id^=ls-],[id^=ret-],[id^=goal-]')) return;
+    var p = document.createElement('p'); p.style.marginTop = '18px';
+    p.innerHTML = '<button type="button" class="btn btn-primary">Discuss These Numbers with AGM Wealth</button>';
+    c.appendChild(p);
+    p.firstChild.addEventListener('click', function () {
+      var t = (c.querySelector('h2,h3') || {}).textContent || 'calculator', parts = [];
+      $$('.calc-result-num', c).forEach(function (n) { var l = n.previousElementSibling; parts.push((l ? l.textContent.trim() + ': ' : '') + n.textContent.trim()); });
+      window.open(wa('Hi Kamlesh, I calculated an investment on your website (' + t.trim() + '): ' + parts.join('; ') + '. I would like to start onboarding.'), '_blank');
+    });
+  });
+  var ft = $('footer.site-footer');
+  if (/insights/.test(location.pathname) && ft) ft.insertAdjacentHTML('beforebegin', '<section class="cv-sec cv-alt"><div class="container"><p style="max-width:60ch">Have a question about how market trends affect your family’s portfolio?</p><p style="margin-top:14px"><a class="btn btn-gold" href="' + wa('Hi Kamlesh, I read your insights and have a question about my portfolio.') + '" target="_blank" rel="noopener">Discuss with Kamlesh on WhatsApp &#8599;</a></p></div></section>');
 })();

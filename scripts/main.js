@@ -175,3 +175,10 @@ function calcGoal() {
   document.getElementById('goal-future').textContent = fmtRupee(futureCost);
   document.getElementById('goal-sip').textContent = fmtRupee(requiredSIP);
 }
+
+/* AGM Wealth: load the conversion layer on every page */
+(function () {
+  var d = document;
+  if (!d.querySelector('link[href*="conversion.css"]')) { var l = d.createElement('link'); l.rel = 'stylesheet'; l.href = 'styles/conversion.css?v=2'; d.head.appendChild(l); }
+  if (!d.querySelector('script[src*="conversion.js"]')) { var s = d.createElement('script'); s.src = 'scripts/conversion.js?v=2'; d.body.appendChild(s); }
+})();
