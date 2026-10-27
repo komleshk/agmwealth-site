@@ -76,3 +76,80 @@ button.btn{font:inherit;cursor:pointer}
 .cv-nri{border:1px solid var(--line);border-left:3px solid var(--gold-600);background:var(--paper-card);padding:20px 24px;margin:32px 0;border-radius:var(--radius)}
 .cv-nri h3{font:600 1.15rem var(--font-display);color:var(--ink-900);margin-bottom:6px}
 .cv-trustline{margin-top:14px;font-size:.85rem;color:var(--text-muted)}.wa-float{display:none!important}
+/* Official Store Badges in Onboarding Modal */
+.cv-stores-wrap {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+.cv-store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #0d141e;
+  color: #ffffff !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  border: 1px solid #2a384c;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.cv-store-badge:hover {
+  background: #172233;
+  transform: translateY(-2px);
+}
+.cv-store-txt {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.1;
+}
+.cv-store-txt small {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+.cv-store-txt strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Sticky Action Bar with Icons */
+.cv-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cv-bar button, .cv-bar a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.cv-bar-wa {
+  background: #25D366 !important;
+  color: #ffffff !important;
+  flex: 1.2;
+}
+.cv-bar-call {
+  background: #1e293b !important;
+  color: #ffffff !important;
+  flex: 0.9;
+}
+.cv-bar-cb {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  border: 1.5px solid #cbd5e1 !important;
+  flex: 1.4;
+}
