@@ -1,3 +1,20 @@
+/* Prevent logo from shrinking on any screen or crowded header */
+.brand {
+  flex-shrink: 0 !important;
+}
+.brand img {
+  height: 52px !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Hide duplicate header buttons and links completely */
+.cv-hdrbtn,
+[data-open="onboard"].cv-hdrbtn,
+.main-nav a[data-open="onboard"] {
+  display: none !important;
+}
+
 /* AGM Wealth - conversion layer. Uses tokens from main.css */
 .btn-ghost{background:transparent;color:var(--ink-700);border:1.5px solid var(--ink-700);cursor:pointer}
 .btn-ghost:hover{background:var(--ink-700);color:var(--white)}
