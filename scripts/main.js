@@ -178,6 +178,6 @@ function calcGoal() {
 /* AGM Wealth: load the conversion layer on every page */
 (function () {
   var d = document;
-  if (!d.querySelector('link[href*="conversion.css"]')) { var l = d.createElement('link'); l.rel = 'stylesheet'; l.href = 'styles/conversion.css?v=4'; d.head.appendChild(l); }
-  if (!d.querySelector('script[src*="conversion.js"]')) { var s = d.createElement('script'); s.src = 'scripts/conversion.js?v=4'; d.body.appendChild(s); }
+  if (!d.querySelector('link[href*="conversion.css"]')) { var l = d.createElement('link'); l.rel = 'stylesheet'; l.href = 'styles/conversion.css?v=7'; d.head.appendChild(l); }
+  if (!d.querySelector('script[src*="conversion.js"]')) { var s = d.createElement('script'); s.src = 'scripts/conversion.js?v=7'; d.body.appendChild(s); }
 })();

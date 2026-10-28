@@ -140,7 +140,7 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   '<p class="cv-sub">Share your Consolidated Account Statement (CAS). We review fund overlap, expense ratios and how your holdings are spread across categories, at zero cost and with no obligation.</p>' +
   '<p class="cv-note">Your details are used only to respond to this request.</p></div><div class="cv-card">' + formHTML('lead') + '</div></div></section>' +
 
-  '<section class="cv-sec" id="founder"><div class="container cv-founder"><div class="cv-mono" aria-hidden="true">KM</div><div><h2>Kamlesh Mandowara</h2>' +
+  '<section class="cv-sec" id="founder"><div class="container cv-founder"><img class="cv-photo" src="assets/kamlesh-founder.jpg" alt="Kamlesh Mandowara, founder of AGM Wealth" width="160" height="160"><div><h2>Kamlesh Mandowara</h2>' +
   '<p style="max-width:62ch">Founder, AGM Wealth. <strong>25+ years of total professional experience</strong>, including <strong>19+ years in banking and financial services</strong> (former Investment Specialist at ICICI Bank Wealth and Branch Manager at Kotak Mahindra Bank). Prior to banking, spent 6+ years in the pharmaceutical sector.</p>' +
   '<blockquote>Wealth is preserved by patience and process. Our job is to keep you clear on what you own, why you own it and what it costs.</blockquote>' +
   '<p style="margin:16px 0 20px;"><a href="about.html#founder-journey" class="btn btn-ghost" style="padding:8px 18px; font-size:0.88rem; display:inline-flex; align-items:center; gap:6px; text-decoration:none;">Meet the Founder &amp; Full Career Journey &rarr;</a></p>' +
@@ -240,4 +240,40 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   });
   var ft = $('footer.site-footer');
   if (/insights/.test(location.pathname) && ft) ft.insertAdjacentHTML('beforebegin', '<section class="cv-sec cv-alt"><div class="container"><p style="max-width:60ch">Have a question about how market trends affect your family’s portfolio?</p><p style="margin-top:14px"><a class="btn btn-gold" href="' + wa('Hi Kamlesh, I read your insights and have a question about my portfolio.') + '" target="_blank" rel="noopener">Discuss with Kamlesh on WhatsApp &#8599;</a></p></div></section>');
+
+  /* ---- v2: numbers row, offerings, disclaimer pop-up, statutory footer ---- */
+  var STATS = [['2017', 'Founded'], ['19+', 'Years in banking & financial services'], ['Global', 'Clients in India and abroad']]; // add families / fund houses here when you decide to publish them
+  var hero = $('section.hero-ledger');
+  if (hero) hero.insertAdjacentHTML('afterend', '<section class="cv-numbers"><div class="container">' + STATS.map(function (s) { return '<div><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join('') + '</div></section>');
+  var OFF = [
+    ['Grow', 'Mutual Funds', 'mutual-funds', 'Equity, debt and hybrid schemes from many fund houses, through SIPs or lump sums.'],
+    ['Managed', 'Portfolio Management (PMS)', 'pms', 'Professionally managed portfolios for eligible investors, from ₹50 lakh.'],
+    ['Alternatives', 'Alternative Investment Funds', 'aif', 'Category I, II and III funds for eligible investors, from ₹1 crore.'],
+    ['Specialised', 'Specialised Investment Funds', 'sif', 'A step between mutual funds and PMS, for investors who understand the added complexity.'],
+    ['Income', 'Bonds & NCDs', 'bonds', 'New NCD issues and secondary-market bonds, with rating and issuer details shared up front.'],
+    ['Deposits', 'Fixed Deposits', 'fixed-deposits', 'Deposits from leading NBFCs and small finance banks.'],
+    ['Liquidity', 'Loan Against Securities', 'loan-against-securities', 'Borrow against eligible holdings instead of selling them, through our platform partner.'],
+    ['Protection', 'Insurance', 'life-insurance', 'Life, health and general cover from our insurer partners. Insurance is the subject matter of solicitation.']
+  ];
+  var apr = $('#approach');
+  if (apr) apr.insertAdjacentHTML('afterend', '<section class="cv-sec" id="offerings"><div class="container"><h2>Everything we offer, in one place</h2><p class="cv-sub">Each page explains what the product is, who it may suit, what to weigh up and the risks involved.</p><div class="cv-offgrid">' +
+    OFF.map(function (o) { return '<a class="cv-off" href="solutions.html#' + o[2] + '"><small>' + o[0] + '</small><h3>' + o[1] + '</h3><p>' + o[3] + '</p><span>Learn more &rarr;</span></a>'; }).join('') + '</div></div></section>');
+  var legal = '<h4>Market risk</h4><p>Mutual fund investments are subject to market risks. Read all scheme related documents carefully before investing. Past performance is not indicative of future results.</p>' +
+    '<h4>What we are</h4><p>AGM Wealth is an AMFI-registered Mutual Fund Distributor (ARN-124172) and an APMI-registered PMS Distributor (APRN 00099). We also distribute AIF and SIF products and insurance through insurer agency codes, and facilitate bonds, fixed deposits and loans against securities offered by third-party issuers and lenders. We earn commission from product providers; see our Commission Disclosures page.</p>' +
+    '<h4>What we are not</h4><p>We are not a SEBI-registered Investment Adviser, Research Analyst or Portfolio Manager. Nothing on this website is investment advice, a recommendation or an offer.</p>' +
+    '<h4>Your money</h4><p>Pay only to the AMC, issuer or insurer, in your own name. Never transfer money to an individual&rsquo;s account, and never share passwords or OTPs.</p>';
+  var seen; try { seen = localStorage.getItem('agm-disc'); } catch (e) {}
+  if (!seen && !/risk-disclaimer|privacy|terms-of-use/.test(location.pathname)) {
+    var d2 = document.createElement('dialog'); d2.id = 'agm-disc';
+    d2.innerHTML = '<h3>Before you continue</h3><p class="cv-note" style="margin:0 0 14px">A short note on what this website is, and what it is not.</p>' + legal + '<p style="margin-top:18px"><button type="button" class="btn btn-primary" id="agm-ok">I understand</button> <a href="risk-disclaimer.html" style="margin-left:12px">Read the full disclaimer</a></p>';
+    document.body.appendChild(d2);
+    d2.addEventListener('cancel', function (e) { e.preventDefault(); });
+    $('#agm-ok').addEventListener('click', function () { try { localStorage.setItem('agm-disc', '1'); } catch (e) {} d2.close(); });
+    d2.showModal();
+  }
+  var foot = $('footer.site-footer');
+  if (foot) {
+    var stat = '<div class="cv-legal"><div class="container"><h4>Statutory disclosures</h4><p>AGM Wealth is registered with AMFI as a Mutual Fund Distributor (ARN-124172; SIFD-124172 for Specialised Investment Funds) and with APMI as a PMS Distributor (APRN 00099), and distributes AIFs (AIF 124172). Registration with AMFI or APMI and NISM certification do not guarantee the performance of the intermediary or assure returns to investors.</p><p>PMS, AIF and SIF are suitable only for eligible investors and carry higher risk. Bonds, fixed deposits and loans are offered by third-party issuers and lenders under their own terms and credit policies. Insurance is the subject matter of solicitation. Calculators and tools on this website are illustrations, not projections.</p><p>Please verify any distributor&rsquo;s ARN on the AMFI website before you transact. For grievances see our Grievance Redressal page; unresolved complaints can be raised on the SEBI SCORES portal (scores.sebi.gov.in).</p></div></div>';
+    var fb = $('.footer-bottom', foot); if (fb) fb.insertAdjacentHTML('beforebegin', stat); else foot.insertAdjacentHTML('beforeend', stat);
+  }
 })();
