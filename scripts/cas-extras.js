@@ -10,7 +10,7 @@
   (document.getElementById('drop') || up).insertAdjacentElement('afterend', acc);
   var card = document.createElement('div');
   card.style.cssText = 'margin:24px 0;padding:24px;border:1px solid #d9d4c4;border-left:4px solid #C99A24;border-radius:4px;background:#fbf6e8';
-  card.innerHTML = '<h2 style="margin:0 0 8px;color:#394E47;font-size:1.3rem">Want a Professional Review of This Portfolio?</h2><p style="margin:0 0 10px;max-width:62ch">Get your scheme overlap, category spread and fund-wise holdings reviewed by Kamlesh Mandowara (24+ years in banking and financial services).</p>' +
+  card.innerHTML = '<h2 style="margin:0 0 8px;color:#394E47;font-size:1.3rem">Want a Professional Review of This Portfolio?</h2><p style="margin:0 0 10px;max-width:62ch">Get your scheme overlap, category spread and fund-wise holdings reviewed by Kamlesh Mandowara (19+ years in banking and financial services).</p>' +
     '<a style="' + btn + 'background:#394E47;color:#fff" target="_blank" rel="noopener" href="' + wa('Hi Kamlesh, I analyzed my portfolio on your website and would like to discuss a portfolio review.') + '">Discuss Report on WhatsApp &#8599;</a>' +
     '<a style="' + btn + 'background:#fff;color:#394E47" target="_blank" rel="noopener" href="' + wa('Hi Kamlesh, I analyzed my portfolio on your website and would like to book a 15-minute call.') + '">Book a 15-Min Call &#8599;</a>';
   function sync() {
