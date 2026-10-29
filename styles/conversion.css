@@ -163,3 +163,104 @@ button.btn{font:inherit;cursor:pointer}
 #agm-disc{border:0;border-radius:var(--radius);padding:28px;width:min(560px,94vw);max-height:92vh;overflow:auto;color:var(--text-body)}#agm-disc::backdrop{background:rgba(34,54,43,.65)}
 #agm-disc h3{font:600 1.35rem var(--font-display);color:var(--ink-900)}#agm-disc h4{font:600 .9rem var(--font-body);color:var(--ink-900);margin:12px 0 4px}#agm-disc p{font-size:.9rem}
 @media(max-width:1000px){.cv-offgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.cv-offgrid{grid-template-columns:1fr}.cv-photo{width:120px;height:120px}}
+/* ==========================================================
+   FLOATING ACTION DOCK: Circular Icons (No bulky bubbles)
+   ========================================================== */
+.cv-bar, .cv-bar.cv-icon-dock {
+  position: fixed !important;
+  z-index: 9999 !important;
+  bottom: 24px !important;
+  right: 20px !important;
+  left: auto !important;
+  width: auto !important;
+  padding: 6px 8px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.cv-dock-btn, .cv-bar button, .cv-bar a {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+  text-decoration: none !important;
+  flex: none !important;
+}
+
+.cv-dock-btn:hover, .cv-bar button:hover, .cv-bar a:hover {
+  transform: translateY(-2px) scale(1.06) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Brand Colors for Icons */
+.cv-dock-wa, .cv-bar-wa {
+  background: #25D366 !important;
+  color: #ffffff !important;
+}
+
+.cv-dock-call, .cv-bar-call {
+  background: #1F3A2E !important;
+  color: #ffffff !important;
+}
+
+.cv-dock-cb, .cv-bar-cb {
+  background: #B39856 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================
+   MOBILE OPTIMIZATIONS (Smartphones under 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 0 !important; /* No need to push down page content */
+  }
+
+  /* Compact Floating Icon Dock on Mobile */
+  .cv-bar, .cv-bar.cv-icon-dock {
+    bottom: 16px !important;
+    right: 14px !important;
+    left: auto !important;
+    padding: 5px 6px !important;
+    gap: 8px !important;
+  }
+
+  .cv-dock-btn, .cv-bar button, .cv-bar a {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+  }
+
+  /* Investor App Section: Align 3 mockups side-by-side without wrapping */
+  .app-section {
+    padding: 32px 20px !important;
+    text-align: center !important;
+  }
+
+  .app-section .store-buttons {
+    justify-content: center !important;
+  }
+
+  .app-section img {
+    max-width: clamp(90px, 28vw, 120px) !important;
+    height: auto !important;
+  }
+}
