@@ -164,157 +164,59 @@ button.btn{font:inherit;cursor:pointer}
 #agm-disc h3{font:600 1.35rem var(--font-display);color:var(--ink-900)}#agm-disc h4{font:600 .9rem var(--font-body);color:var(--ink-900);margin:12px 0 4px}#agm-disc p{font-size:.9rem}
 @media(max-width:1000px){.cv-offgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.cv-offgrid{grid-template-columns:1fr}.cv-photo{width:120px;height:120px}}
 /* ==========================================================
-   FLOATING ACTION DOCK: Circular Icons (No bulky bubbles)
+   OFFICIAL APP STORE BADGES (Google Play & Apple)
    ========================================================== */
-.cv-bar, .cv-bar.cv-icon-dock {
-  position: fixed !important;
-  z-index: 9999 !important;
-  bottom: 24px !important;
-  right: 20px !important;
-  left: auto !important;
-  width: auto !important;
-  padding: 6px 8px !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  border-radius: 999px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+.store-buttons {
   display: flex !important;
+  gap: 12px !important;
+  margin-top: 24px !important;
+  flex-wrap: wrap !important;
   align-items: center !important;
-  gap: 10px !important;
 }
 
-.cv-dock-btn, .cv-bar button, .cv-bar a {
-  width: 44px !important;
-  height: 44px !important;
-  min-width: 44px !important;
-  max-width: 44px !important;
-  border-radius: 50% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+.store-badge-btn, .store-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  cursor: pointer !important;
-  border: none !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
-  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+  gap: 12px !important;
   text-decoration: none !important;
-  flex: none !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25) !important;
+  transition: transform 0.15s ease, background 0.15s ease !important;
+  min-height: 48px !important;
 }
 
-.cv-dock-btn:hover, .cv-bar button:hover, .cv-bar a:hover {
-  transform: translateY(-2px) scale(1.06) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22) !important;
+.store-badge-btn:hover, .store-btn:hover {
+  background: #1a1a1a !important;
+  transform: translateY(-2px) !important;
 }
 
-/* Brand Colors for Icons */
-.cv-dock-wa, .cv-bar-wa {
-  background: #25D366 !important;
-  color: #ffffff !important;
+.store-badge-text {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+  line-height: 1.15 !important;
 }
 
-.cv-dock-call, .cv-bar-call {
-  background: #1F3A2E !important;
-  color: #ffffff !important;
+.store-badge-text small {
+  font-size: 0.65rem !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #d1d5db !important;
 }
 
-.cv-dock-cb, .cv-bar-cb {
-  background: #B39856 !important;
+.store-badge-text strong {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
   color: #ffffff !important;
 }
 
 /* ==========================================================
-   MOBILE OPTIMIZATIONS (Smartphones under 768px)
+   STICKY ACTION BAR (WhatsApp, Call, Request Callback)
    ========================================================== */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 0 !important; /* No need to push down page content */
-  }
-
-  /* Compact Floating Icon Dock on Mobile */
-  .cv-bar, .cv-bar.cv-icon-dock {
-    bottom: 16px !important;
-    right: 14px !important;
-    left: auto !important;
-    padding: 5px 6px !important;
-    gap: 8px !important;
-  }
-
-  .cv-dock-btn, .cv-bar button, .cv-bar a {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    max-width: 40px !important;
-  }
-
-  /* Investor App Section: Align 3 mockups side-by-side without wrapping */
-  .app-section {
-    padding: 32px 20px !important;
-    text-align: center !important;
-  }
-
-  .app-section .store-buttons {
-    justify-content: center !important;
-  }
-
-  .app-section img {
-    max-width: clamp(90px, 28vw, 120px) !important;
-    height: auto !important;
-  }
-}
-/* --- Compliance Strip (Registration Grid) Mobile Fix --- */
-@media (max-width: 768px) {
-  .compliance-strip {
-    padding: 24px 0 !important;
-  }
-
-  /* Switch from cramped columns to a clean full-width vertical stack */
-  .compliance-strip .reg-grid {
-    grid-template-columns: 1fr !important;
-    gap: 0 !important;
-  }
-
-  /* Stack label above value instead of side-by-side */
-  .compliance-strip .ledger-row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 4px !important;
-    padding: 12px 0 !important;
-    border-bottom: 1px solid rgba(217, 196, 143, 0.2) !important;
-  }
-
-  .compliance-strip .ledger-row:first-child {
-    border-top: 1px solid rgba(217, 196, 143, 0.2) !important;
-  }
-
-  /* Hide the horizontal dotted connector on mobile */
-  .compliance-strip .ledger-row .lr-dots {
-    display: none !important;
-  }
-
-  /* Clean gold label */
-  .compliance-strip .ledger-row .lr-label {
-    color: var(--gold-300, #d9c48f) !important;
-    font-size: 0.72rem !important;
-    letter-spacing: 0.06em !important;
-    text-transform: uppercase !important;
-    font-weight: 600 !important;
-  }
-
-  /* Full-width, readable validity text */
-  .compliance-strip .ledger-row .lr-value {
-    text-align: left !important;
-    color: #E2E8E4 !important;
-    font-size: 0.82rem !important;
-    line-height: 1.45 !important;
-    white-space: normal !important;
-    word-break: normal !important;
-  }
-}
-/* --- Clean Sticky Contact Bar (Icons + Text Labels) --- */
 .cv-bar {
   position: fixed !important;
   z-index: 9999 !important;
@@ -327,7 +229,7 @@ button.btn{font:inherit;cursor:pointer}
   gap: 8px !important;
   padding: 8px 10px !important;
   background: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
   border-radius: 12px !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
 }
@@ -349,6 +251,10 @@ button.btn{font:inherit;cursor:pointer}
   white-space: nowrap !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
   transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
 }
 
 .cv-bar a:hover, .cv-bar button:hover {
@@ -356,27 +262,81 @@ button.btn{font:inherit;cursor:pointer}
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* WhatsApp Button */
 .cv-btn-wa {
   background: #25D366 !important;
   color: #ffffff !important;
 }
 
-/* Call Button */
 .cv-btn-call {
   background: #1F3A2E !important;
   color: #ffffff !important;
 }
 
-/* Callback Button */
 .cv-btn-cb {
   background: #ffffff !important;
   color: #1F3A2E !important;
   border: 1.5px solid #d1d5db !important;
 }
 
-/* Mobile: cleanly span the bottom row with equal button widths */
+/* ==========================================================
+   MOBILE SCREEN RESPONSIVENESS (< 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Investor App section on mobile */
+  .app-section {
+    grid-template-columns: 1fr !important;
+    padding: 36px 20px !important;
+    text-align: center !important;
+  }
+  .app-section .store-buttons {
+    justify-content: center !important;
+  }
+  .app-section img {
+    max-width: clamp(90px, 28vw, 120px) !important;
+    height: auto !important;
+  }
+
+  /* Compliance Strip (Registration Grid) clean vertical stack */
+  .compliance-strip {
+    padding: 24px 0 !important;
+  }
+  .compliance-strip .reg-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .compliance-strip .ledger-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(217, 196, 143, 0.2) !important;
+  }
+  .compliance-strip .ledger-row:first-child {
+    border-top: 1px solid rgba(217, 196, 143, 0.2) !important;
+  }
+  .compliance-strip .ledger-row .lr-dots {
+    display: none !important;
+  }
+  .compliance-strip .ledger-row .lr-label {
+    color: var(--gold-300, #d9c48f) !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+  }
+  .compliance-strip .ledger-row .lr-value {
+    text-align: left !important;
+    color: #E2E8E4 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+}
+
 @media (max-width: 640px) {
+  /* Sticky bar spans neatly across the bottom on phones */
   .cv-bar {
     bottom: 0 !important;
     left: 0 !important;
@@ -391,15 +351,12 @@ button.btn{font:inherit;cursor:pointer}
     gap: 6px !important;
     background: #ffffff !important;
   }
-
   .cv-bar a, .cv-bar button {
     flex: 1 !important;
     padding: 10px 4px !important;
     font-size: 0.78rem !important;
     gap: 5px !important;
   }
-
-  /* Shortens "Request Callback" to "Callback" on narrow screens so it never wraps */
   .cv-cb-full {
     display: none !important;
   }
