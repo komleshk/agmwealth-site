@@ -281,3 +281,78 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
     var fb = $('.footer-bottom', foot); if (fb) fb.insertAdjacentHTML('beforebegin', stat); else foot.insertAdjacentHTML('beforeend', stat);
   }
 })();
+/* ==========================================================
+   STICKY ACTION BAR (Clean Solid Icons)
+   ========================================================== */
+.cv-bar {
+  position: fixed !important;
+  z-index: 9999 !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  width: auto !important;
+  display: flex !important;
+  gap: 8px !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  padding: 6px 8px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  align-items: center !important;
+}
+
+.cv-bar .cv-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 8px 16px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.cv-bar .cv-btn:hover {
+  transform: translateY(-1px) !important;
+}
+
+.cv-bar .cv-btn-wa {
+  background: #25D366 !important;
+  color: #ffffff !important;
+}
+
+.cv-bar .cv-btn-call {
+  background: #1e2e28 !important;
+  color: #ffffff !important;
+}
+
+.cv-bar .cv-btn-cb {
+  background: #f1f4f2 !important;
+  color: #1e2e28 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.cv-bar .cv-btn-cb:hover {
+  background: #e5eae6 !important;
+}
+
+@media (max-width: 640px) {
+  .cv-bar {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    justify-content: space-between !important;
+    padding: 6px !important;
+  }
+  .cv-bar .cv-btn {
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 9px 8px !important;
+    font-size: 12px !important;
+    gap: 5px !important;
+  }
+}
