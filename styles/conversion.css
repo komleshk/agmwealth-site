@@ -264,3 +264,53 @@ button.btn{font:inherit;cursor:pointer}
     height: auto !important;
   }
 }
+/* --- Compliance Strip (Registration Grid) Mobile Fix --- */
+@media (max-width: 768px) {
+  .compliance-strip {
+    padding: 24px 0 !important;
+  }
+
+  /* Switch from cramped columns to a clean full-width vertical stack */
+  .compliance-strip .reg-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  /* Stack label above value instead of side-by-side */
+  .compliance-strip .ledger-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(217, 196, 143, 0.2) !important;
+  }
+
+  .compliance-strip .ledger-row:first-child {
+    border-top: 1px solid rgba(217, 196, 143, 0.2) !important;
+  }
+
+  /* Hide the horizontal dotted connector on mobile */
+  .compliance-strip .ledger-row .lr-dots {
+    display: none !important;
+  }
+
+  /* Clean gold label */
+  .compliance-strip .ledger-row .lr-label {
+    color: var(--gold-300, #d9c48f) !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+  }
+
+  /* Full-width, readable validity text */
+  .compliance-strip .ledger-row .lr-value {
+    text-align: left !important;
+    color: #E2E8E4 !important;
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+}
