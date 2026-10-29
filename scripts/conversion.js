@@ -198,29 +198,31 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
     }
   });
 
-  /* Sticky Action Bar with Icons and Labels */
+    /* Sticky Action Bar (Option 2: Recognizable Solid Icons) */
   var bar = document.createElement('div');
   bar.className = 'cv-bar';
   bar.innerHTML =
-    '<a href="' + wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.') + '" class="cv-btn-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">' +
-      '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.301-.778.978-.954 1.179-.176.2-.351.226-.652.075s-1.272-.469-2.423-1.496c-.896-.799-1.5-1.787-1.676-2.088-.176-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.201-.301.301-.502.1-.2.05-.376-.025-.526-.075-.151-.678-1.631-.929-2.233-.244-.587-.493-.507-.678-.517-.176-.01-.376-.01-.577-.01s-.527.075-.803.376c-.276.301-1.054 1.029-1.054 2.509 0 1.48 1.079 2.909 1.229 3.11s2.124 3.243 5.146 4.549c.719.311 1.28.497 1.717.636.722.23 1.378.198 1.897.12.578-.088 1.78-.728 2.031-1.431.251-.703.251-1.305.176-1.431-.075-.126-.276-.201-.577-.351zM12.04 2C6.524 2 2.04 6.504 2.04 12.04c0 1.79.472 3.535 1.368 5.064L2 22l5.054-1.328a10.007 10.007 0 0 0 4.986 1.368h.005c5.515 0 10-4.504 10-10.04C22.045 6.504 17.556 2 12.04 2z"/></svg>' +
+    '<a href="' + wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.') + '" class="cv-btn cv-btn-wa" target="_blank" rel="noopener" aria-label="WhatsApp">' +
+      '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.05-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.212 8.212 0 0 1-1.26-4.47c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.53c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.98-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.12-.14.17-.25.25-.41.08-.17.04-.32-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/></svg>' +
       '<span>WhatsApp</span>' +
     '</a>' +
-    '<a href="tel:+918875050447" class="cv-btn-call" aria-label="Call AGM Wealth">' +
-      '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+    '<a href="tel:+918875050447" class="cv-btn cv-btn-call" aria-label="Call AGM Wealth">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.57 3.99c0-.55-.45-1-1-1H4.06c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.48c0-.55-.45-1-.05-1.13z"/></svg>' +
       '<span>Call</span>' +
     '</a>' +
-    '<button type="button" data-open="callback" class="cv-btn-cb" aria-label="Request Callback">' +
-      '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' +
-      '<span><span class="cv-cb-full">Request </span>Callback</span>' +
+    '<button type="button" data-open="callback" class="cv-btn cv-btn-cb" aria-label="Request Callback">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM18 2h-4c-.55 0-1 .45-1 1s.45 1 1 1h1.59l-4.3 4.29a.996.996 0 1 0 1.41 1.41L18 5.41V7c0 .55.45 1 1 1s1-.45 1-1V3c0-.55-.45-1-1-1z"/></svg>' +
+      '<span>Request Callback</span>' +
     '</button>';
   document.body.appendChild(bar);
-  $('#cvwa').addEventListener('click', function () { window.open(wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.'), '_blank'); });
 
-      /* ---- header links, NRI card, calculators, insights ---- */
-  var nav = $('#main-nav');
-  if (nav) {
-    var calc = $('a[href="calculators.html"]', nav);
+  var cvwaEl = $('#cvwa');
+  if (cvwaEl) {
+    cvwaEl.addEventListener('click', function () {
+      window.open(wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.'), '_blank');
+    });
+  }
+
     if (calc && !$('a[href="cas-analyzer.html"]', nav)) {
       calc.insertAdjacentHTML('afterend', '<a href="cas-analyzer.html">Portfolio Analyzer</a>');
     }
