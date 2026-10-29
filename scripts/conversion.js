@@ -198,20 +198,20 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
     }
   });
 
-/* sticky bar */
-    var bar = document.createElement('div'); bar.className = 'cv-bar';
+  /* sticky bar - circular icon dock */
+  var bar = document.createElement('div'); 
+  bar.className = 'cv-bar cv-icon-dock';
   bar.innerHTML = 
-    '<button type="button" id="cvwa" class="cv-bar-wa">' +
-      '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.301-.778.978-.954 1.179-.176.2-.351.226-.652.075s-1.272-.469-2.423-1.496c-.896-.799-1.5-1.787-1.676-2.088-.176-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.201-.301.301-.502.1-.2.05-.376-.025-.526-.075-.151-.678-1.631-.929-2.233-.244-.587-.493-.507-.678-.517-.176-.01-.376-.01-.577-.01s-.527.075-.803.376c-.276.301-1.054 1.029-1.054 2.509 0 1.48 1.079 2.909 1.229 3.11s2.124 3.243 5.146 4.549c.719.311 1.28.497 1.717.636.722.23 1.378.198 1.897.12.578-.088 1.78-.728 2.031-1.431.251-.703.251-1.305.176-1.431-.075-.126-.276-.201-.577-.351zM12.04 2C6.524 2 2.04 6.504 2.04 12.04c0 1.79.472 3.535 1.368 5.064L2 22l5.054-1.328a10.007 10.007 0 0 0 4.986 1.368h.005c5.515 0 10-4.504 10-10.04C22.045 6.504 17.556 2 12.04 2z"/></svg>' +
-      'WhatsApp' +
+    '<button type="button" id="cvwa" class="cv-dock-btn cv-dock-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">' +
+      '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.301-.778.978-.954 1.179-.176.2-.351.226-.652.075s-1.272-.469-2.423-1.496c-.896-.799-1.5-1.787-1.676-2.088-.176-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.201-.301.301-.502.1-.2.05-.376-.025-.526-.075-.151-.678-1.631-.929-2.233-.244-.587-.493-.507-.678-.517-.176-.01-.376-.01-.577-.01s-.527.075-.803.376c-.276.301-1.054 1.029-1.054 2.509 0 1.48 1.079 2.909 1.229 3.11s2.124 3.243 5.146 4.549c.719.311 1.28.497 1.717.636.722.23 1.378.198 1.897.12.578-.088 1.78-.728 2.031-1.431.251-.703.251-1.305.176-1.431-.075-.126-.276-.201-.577-.351zM12.04 2C6.524 2 2.04 6.504 2.04 12.04c0 1.79.472 3.535 1.368 5.064L2 22l5.054-1.328a10.007 10.007 0 0 0 4.986 1.368h.005c5.515 0 10-4.504 10-10.04C22.045 6.504 17.556 2 12.04 2z"/></svg>' +
     '</button>' +
-    '<a href="tel:+918875050447" class="cv-bar-call">' +
-      '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
-      'Call' +
+    '<a href="tel:+918875050447" class="cv-dock-btn cv-dock-call" aria-label="Call AGM Wealth" title="Call AGM Wealth">' +
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
     '</a>' +
-    '<button type="button" data-open="callback" class="cv-bar-cb">' +
-      'Request Callback' +
+    '<button type="button" data-open="callback" class="cv-dock-btn cv-dock-cb" aria-label="Request Callback" title="Request Callback">' +
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="12 14 12 17 14 17"/></svg>' +
     '</button>';
+
   document.body.appendChild(bar);
   $('#cvwa').addEventListener('click', function () { window.open(wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.'), '_blank'); });
 
