@@ -249,3 +249,15 @@ button.btn{font:inherit;cursor:pointer}
   .cv-bar .cv-btn{flex:1 1 0;min-width:0;padding:11px 6px;font-size:12px;gap:5px}
   .cv-long{display:none}.cv-short{display:inline}body{padding-bottom:84px}
 }
+
+/* ---- v3 ---- */
+.cv-strip{overflow:hidden;background:var(--paper-card);border-bottom:1px solid var(--line);padding:12px 0}
+.cv-strip-track{display:flex;width:max-content;animation:cvm 45s linear infinite}.cv-strip:hover .cv-strip-track{animation-play-state:paused}
+.cv-strip-set{display:flex}.cv-strip-set span{font:500 .8rem var(--font-mono);color:var(--ink-700);padding:0 26px;white-space:nowrap}
+.cv-strip-set span:before{content:"\25C6";color:var(--gold-600);margin-right:14px}
+@keyframes cvm{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.cv-strip-track{animation:none;width:auto;flex-wrap:wrap}.cv-strip-set[aria-hidden]{display:none}}
+.cv-why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.cv-why h3{font:600 1.15rem var(--font-display);color:var(--ink-900);margin-bottom:8px}.cv-why p{color:var(--text-muted)}
+.cv-cta{background:var(--ink-700);color:#C6D1C9;padding:56px 0;text-align:center}.cv-cta h2{font-family:var(--font-display);color:var(--white);font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:10px}
+.cv-cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:22px}.cv-cta .btn-ghost{color:var(--white);border-color:var(--gold-300)}
+@media(max-width:768px){.cv-why{grid-template-columns:1fr}.cv-cta-row .btn{width:100%}}
