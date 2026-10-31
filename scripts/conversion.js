@@ -292,5 +292,60 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
     '<div class="cv-card"><h3>Plain language</h3><p>Risks first, returns after, and costs on the table. If a product cannot be explained simply, we say so.</p></div>' +
     '<div class="cv-card"><h3>We stay for the boring parts</h3><p>KYC, nominations, consolidation, transmission and claims: the unglamorous work that matters most later.</p></div></div></div></section>');
   if (foot && !/risk-disclaimer|privacy|terms-of-use/.test(location.pathname) && /index|\/$/.test(location.pathname)) foot.insertAdjacentHTML('beforebegin', '<section class="cv-cta"><div class="container"><h2>Ready for a clear conversation?</h2><p>Talk to us about your investments: on a call, on WhatsApp, or in person in Jaipur.</p><p class="cv-cta-row"><a class="btn btn-gold" target="_blank" rel="noopener" href="' + wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.') + '">Chat on WhatsApp</a><button type="button" class="btn btn-ghost" data-open="callback">Request a call back</button><button type="button" class="btn btn-ghost" data-open="onboard">Start paperless onboarding</button></p></div></section>');
+
+  /* ---- v4: line icons, goal cards, reading room, FAQ, round contact buttons ---- */
+  var SV = function (p) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + p + '</svg>'; };
+  var IC = {
+    leaf: SV('<path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19c3-4 6-7 10-9"/>'),
+    brief: SV('<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>'),
+    layers: SV('<path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/>'),
+    doc: SV('<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>'),
+    shield: SV('<path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6l-7-3z"/><path d="m9 12 2 2 4-4"/>'),
+    bank: SV('<path d="M3 9 12 4l9 5H3z"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/>'),
+    swap: SV('<path d="M5 8h13l-3-3M19 16H6l3 3"/>'),
+    home: SV('<path d="m4 11 8-7 8 7"/><path d="M6 10v10h12V10M10 20v-5h4v5"/>'),
+    book: SV('<path d="M12 6C10 4.5 7 4 4 4v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/>'),
+    sun: SV('<circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>')
+  };
+  var head = function (eb, h, sub) { return '<div class="cv-head"><div><span class="cv-eyebrow">' + eb + '</span><h2>' + h + '</h2></div>' + (sub ? '<p>' + sub + '</p>' : '') + '</div>'; };
+  var ORDER = ['leaf', 'brief', 'layers', 'doc', 'shield', 'bank', 'swap', 'home'];
+  $$('.cv-off').forEach(function (a, i) { a.insertAdjacentHTML('afterbegin', '<i class="cv-ico">' + IC[ORDER[i]] + '</i>'); var s = $('span', a); if (s) s.innerHTML = 'Understand the essentials &#8599;'; });
+  var oh = $('#offerings h2'); if (oh) oh.innerHTML = 'Understand your options.<br>Choose with perspective.';
+  var os = $('#offerings .cv-sub'); if (os) os.textContent = 'Different products serve different needs. Look at structure, risk, cost and eligibility before investing.';
+  var GOALS = [
+    ['leaf', 'Build an investing habit', 'Start with a SIP that fits your cash flow and a fund category you understand.', 'calculators.html'],
+    ['book', 'Save for a family milestone', 'Explore the future cost of education, a home or another goal with a clear time horizon.', 'calculators.html'],
+    ['sun', 'Look ahead to retirement', 'Bring spending, inflation, investment risk and withdrawal needs into one conversation.', 'calculators.html'],
+    ['doc', 'Make sense of what you own', 'Step back to examine fund overlap, concentration, costs and liquidity.', 'cas-analyzer.html']
+  ];
+  var offSec = $('#offerings');
+  if (offSec) offSec.insertAdjacentHTML('beforebegin', '<section class="cv-sec cv-alt" id="goals"><div class="container">' + head('Start with what matters to you', 'Life has goals.<br>Start with yours.', 'You do not need all the answers to begin. Start with the question that matters most.') +
+    '<div class="cv-goals">' + GOALS.map(function (g) { return '<a class="cv-goal" href="' + g[3] + '"><i class="cv-ico">' + IC[g[0]] + '</i><h3>' + g[1] + '</h3><p>' + g[2] + '</p><span>Explore this goal &#8599;</span></a>'; }).join('') + '</div></div></section>');
+  var NOTES = [
+    ['leaf', 'Investing, explained', 'Mutual funds', 'SIP or lump sum? Start with how your money arrives.', 'The way you invest should reflect cash flow, time horizon and your comfort with uncertainty.', '#E4EADF', '#5C7A55'],
+    ['layers', 'Know the structure', 'Investment structures', 'PMS, AIF and SIF: three structures, different decisions.', 'Understand ownership, liquidity and documentation before considering a product.', '#EBE2D0', '#A8873A'],
+    ['book', 'Read the details', 'Costs &amp; fees', 'The costs to read before you invest.', 'Expense ratios, exit loads and product fees deserve a place in every comparison.', '#E4E8E8', '#5E7777']
+  ];
+  var fnd = $('#founder');
+  if (fnd) fnd.insertAdjacentHTML('beforebegin', '<section class="cv-sec" id="reading-room"><div class="container">' + head('The AGM reading room', 'Understanding comes<br>before investing.', '') +
+    '<div class="cv-notes">' + NOTES.map(function (n) { return '<a class="cv-note-card" href="insights.html"><div class="cv-note-top" style="background:' + n[5] + ';color:' + n[6] + '"><i class="cv-ico cv-ico-bare">' + IC[n[0]] + '</i><small>' + n[1] + '</small></div><div class="cv-note-body"><small>' + n[2] + '</small><h3>' + n[3] + '</h3><p>' + n[4] + '</p><span>Read the note &#8599;</span></div></a>'; }).join('') + '</div><p style="margin-top:24px"><a class="cv-link" href="insights.html">Visit the reading room &#8599;</a></p></div></section>');
+  var FAQ = [
+    ['Are you a distributor or an investment adviser?', 'We are a distributor. AGM Wealth is an AMFI-registered Mutual Fund Distributor (ARN-124172) and an APMI-registered PMS Distributor (APRN 00099), and we also distribute AIF and SIF products and insurance. We are not a SEBI-registered Investment Adviser, so we do not give personalised investment advice. We explain products, costs and risks so that you can decide.'],
+    ['How does AGM Wealth earn?', 'We earn commission from the product providers, such as fund houses, PMS and AIF managers, insurers and issuers. Mutual fund investments through us are in regular plans, which include a distributor commission within the scheme&rsquo;s expenses. Details are on our <a href="commission-disclosures.html">Commission Disclosures</a> page.'],
+    ['Can I begin the onboarding online?', 'Yes. Download the AGM Wealth app to start registration and KYC (PAN and Aadhaar are needed). If you prefer help, message us on WhatsApp and we will guide you through it.'],
+    ['Can you help if I already have investments?', 'Yes. Share your Consolidated Account Statement and we will go through what you hold: overlap, concentration, costs and liquidity. It is a conversation about your holdings, not a recommendation to switch. You can start with the <a href="cas-analyzer.html">Portfolio Analyzer</a>.'],
+    ['Do you work with investors outside Jaipur?', 'Yes. Our clients are across India and abroad, onboarded digitally. NRI investors, including those in the US and Canada, can invest with select fund houses that accept them, subject to FATCA compliance and each fund house&rsquo;s own conditions.']
+  ];
+  if (fnd) fnd.insertAdjacentHTML('afterend', '<section class="cv-sec cv-alt" id="faq"><div class="container cv-faq"><div>' + head('Before you begin', 'A few questions<br>worth asking.', '') +
+    '<p class="cv-sub">Clear roles and straightforward answers make for a better first conversation.</p><a class="cv-link" target="_blank" rel="noopener" href="' + wa('Hello AGM Wealth, I have a question before I begin.') + '">Ask your question &#8599;</a></div><div>' +
+    FAQ.map(function (f) { return '<details><summary>' + f[0] + '</summary><p>' + f[1] + '</p></details>'; }).join('') + '</div></div></section>');
+  var ob = $('.cv-bar');
+  if (ob) {
+    var wsv = $('.cv-btn-wa svg', ob), csv = $('.cv-btn-call svg', ob);
+    ob.remove();
+    var fab = document.createElement('div'); fab.className = 'cv-fab';
+    fab.innerHTML = '<a class="cv-fab-call" href="tel:+918875050447" aria-label="Call AGM Wealth">' + (csv ? csv.outerHTML : 'Call') + '</a><a class="cv-fab-wa" target="_blank" rel="noopener" href="' + wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.') + '" aria-label="Chat on WhatsApp">' + (wsv ? wsv.outerHTML : 'WhatsApp') + '</a>';
+    document.body.appendChild(fab);
+  }
 })();
 

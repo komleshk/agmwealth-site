@@ -121,9 +121,10 @@
       <input type="hidden" name="access_key" value="bc4c45fb-cf1c-4a72-bb0c-34608e3dad43">
       <input type="hidden" name="subject" value="New enquiry from AGM Wealth website">
       <input type="hidden" name="from_name" value="AGM Wealth Website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div style="display:grid; gap:16px;">
         <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Name</label><input type="text" name="name" required style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
-        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Phone</label><input type="tel" name="phone" required style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
+        <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Phone</label><input type="tel" name="phone" required pattern="[0-9+ ()\-]{10,16}" title="Enter a valid phone number" style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;"></div>
         <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">I'm interested in</label>
           <select name="interest" style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px;">
             <option>Mutual Funds / SIP</option>
@@ -135,6 +136,7 @@
           </select>
         </div>
         <div><label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Message (optional)</label><textarea rows="3" name="message" style="width:100%; padding:11px; border:1px solid var(--line); border-radius:6px; font-family:inherit;"></textarea></div>
+        <label style="display:flex; gap:10px; font-size:0.82rem; color:var(--text-muted); line-height:1.5;"><input type="checkbox" name="consent_ack" required style="margin-top:3px;"><span>I agree to AGM Wealth contacting me about this enquiry, as per the <a href="privacy-policy.html">Privacy Policy</a>.</span></label>
         <button type="submit" class="btn btn-primary">Send Message</button>
       </div>
     </form>
@@ -208,5 +210,6 @@
 <script src="scripts/main.js"></script>
 
 <script src="scripts/render-content.js"></script>
+<script>(function(){var f=document.getElementById('contact-form');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending...';var d={};new FormData(f).forEach(function(v,k){d[k]=v});fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json()}).then(function(j){if(!j.success)throw 0;f.outerHTML='<div class="card" role="status"><strong>Thank you. Your message is received.</strong><p>We will get back to you within one business day.</p></div>'}).catch(function(){b.disabled=false;b.textContent='Send Message';alert('Could not send right now. Please call or WhatsApp 88750 50447.')})})})();</script>
 </body>
 </html>
