@@ -286,3 +286,6 @@ button.btn{font:inherit;cursor:pointer}
 .cv-fab svg{width:26px;height:26px}.cv-fab-call{background:var(--ink-700)}.cv-fab-wa{background:#2E9E5B}.cv-bar{display:none!important}
 @media(max-width:1000px){.cv-goals{grid-template-columns:repeat(2,1fr)}.cv-notes{grid-template-columns:1fr}.cv-faq{grid-template-columns:1fr;gap:28px}}
 @media(max-width:768px){body{padding-bottom:0!important}.cv-head{flex-direction:column;align-items:flex-start;gap:12px}.cv-goals{grid-template-columns:1fr}.cv-fab a{width:52px;height:52px}}
+
+/* ---- seo ---- */
+img{height:auto}

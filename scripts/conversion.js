@@ -57,6 +57,7 @@
     return ok;
   }
   function done(form, k, link) {
+    try { window.agmTrack && window.agmTrack('generate_lead', { form_name: k }); } catch (e) {}
     if (link) { form.outerHTML = '<div class="cv-ok" role="status"><p><strong>Almost done. Tap Send in WhatsApp to deliver your details to us.</strong></p><p><a class="btn btn-primary" href="' + link + '" target="_blank" rel="noopener">Open WhatsApp</a></p></div>'; return; }
     var extra = (k === 'onboard' && CFG.kycLink) ? '<p><a class="btn btn-primary" href="' + CFG.kycLink + '" target="_blank" rel="noopener">Continue to Secure KYC</a></p>' : (k === 'onboard' ? '<p>We will WhatsApp you the secure KYC link within one business day.</p>' : '');
     form.outerHTML = '<div class="cv-ok" role="status"><p><strong>' + OK[k] + '</strong></p>' + extra + '</div>';
@@ -145,7 +146,7 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   '<blockquote>Wealth is preserved by patience and process. Our job is to keep you clear on what you own, why you own it and what it costs.</blockquote>' +
   '<p style="margin:16px 0 20px;"><a href="about.html#founder-journey" class="btn btn-ghost" style="padding:8px 18px; font-size:0.88rem; display:inline-flex; align-items:center; gap:6px; text-decoration:none;">Meet the Founder &amp; Full Career Journey &rarr;</a></p>' +
   '<ul class="cv-creds"><li>AMFI ARN-124172</li><li>APMI APRN 00099</li><li>AIF Distributor 124172</li><li>SIF SIFD-124172</li></ul></div></div></section>';
-  var anchor = $('#approach'); if (anchor) anchor.insertAdjacentHTML('afterend', html);
+  var anchor = $('#approach'); if (anchor) (document.getElementById('why') || anchor).insertAdjacentHTML('afterend', html);
 
   /* tabs */
   $$('[role=tab]').forEach(function (t) { t.addEventListener('click', function () { $$('[role=tab]').forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !on; }); }); });
@@ -309,7 +310,7 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   };
   var head = function (eb, h, sub) { return '<div class="cv-head"><div><span class="cv-eyebrow">' + eb + '</span><h2>' + h + '</h2></div>' + (sub ? '<p>' + sub + '</p>' : '') + '</div>'; };
   var ORDER = ['leaf', 'brief', 'layers', 'doc', 'shield', 'bank', 'swap', 'home'];
-  $$('.cv-off').forEach(function (a, i) { a.insertAdjacentHTML('afterbegin', '<i class="cv-ico">' + IC[ORDER[i]] + '</i>'); var s = $('span', a); if (s) s.innerHTML = 'Understand the essentials &#8599;'; });
+  $$('.cv-off').forEach(function (a, i) { if ($('i.cv-ico', a)) return; a.insertAdjacentHTML('afterbegin', '<i class="cv-ico">' + IC[ORDER[i]] + '</i>'); var s = $('span', a); if (s) s.innerHTML = 'Understand the essentials &#8599;'; });
   var oh = $('#offerings h2'); if (oh) oh.innerHTML = 'Understand your options.<br>Choose with perspective.';
   var os = $('#offerings .cv-sub'); if (os) os.textContent = 'Different products serve different needs. Look at structure, risk, cost and eligibility before investing.';
   var GOALS = [
@@ -347,5 +348,26 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
     fab.innerHTML = '<a class="cv-fab-call" href="tel:+918875050447" aria-label="Call AGM Wealth">' + (csv ? csv.outerHTML : 'Call') + '</a><a class="cv-fab-wa" target="_blank" rel="noopener" href="' + wa('Hello AGM Wealth, I would like to explore starting an investment portfolio.') + '" aria-label="Chat on WhatsApp">' + (wsv ? wsv.outerHTML : 'WhatsApp') + '</a>';
     document.body.appendChild(fab);
   }
+
+  /* ---- analytics + lead events (paste your IDs below; leave empty to switch off) ---- */
+  var GA4_ID = '';      // Google Analytics 4 measurement ID, like G-XXXXXXXXXX
+  var CF_TOKEN = '';    // Cloudflare Web Analytics token (Cloudflare dashboard > Web Analytics)
+  if (GA4_ID) {
+    var gs = document.createElement('script'); gs.async = true; gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID; document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); }; window.gtag('js', new Date()); window.gtag('config', GA4_ID);
+  }
+  if (CF_TOKEN) { var cs = document.createElement('script'); cs.defer = true; cs.src = 'https://static.cloudflareinsights.com/beacon.min.js'; cs.setAttribute('data-cf-beacon', '{"token": "' + CF_TOKEN + '"}'); document.head.appendChild(cs); }
+  window.agmTrack = function (n, p) { try { if (window.gtag) window.gtag('event', n, p || {}); } catch (e) {} };
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a,button'); if (!a) return; var h = a.getAttribute('href') || '';
+    if (/^tel:/.test(h)) window.agmTrack('call_click', { page: location.pathname });
+    else if (/wa\.me/.test(h)) window.agmTrack('whatsapp_click', { page: location.pathname });
+    else if (/play\.google|apps\.apple/.test(h)) window.agmTrack('app_download_click', { store: /apple/.test(h) ? 'ios' : 'android' });
+    else if (a.dataset && a.dataset.open) window.agmTrack('cta_' + a.dataset.open, { page: location.pathname });
+  }, true);
+  /* pages built into the HTML win over the script's copy */
+  ['.cv-numbers', '.cv-strip', '#goals', '#offerings', '#why', '#reading-room', '#founder', '#faq', '.cv-cta'].forEach(function (s) {
+    var all = $$(s); if (all.length > 1) all.forEach(function (el) { if (!el.hasAttribute('data-pre')) el.remove(); });
+  });
 })();
 
