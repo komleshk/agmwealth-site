@@ -289,3 +289,6 @@ button.btn{font:inherit;cursor:pointer}
 
 /* ---- seo ---- */
 img{height:auto}
+
+/* ---- performance ---- */
+.tradingview-widget-container{min-height:78px}

@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://agmwealth.com/terms-of-use.html">
 <meta property="og:site_name" content="AGM Wealth">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/space-grotesk-var.woff2) format('woff2')}@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/ibm-plex-sans-var.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-400.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-500.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-mono-600.woff2) format('woff2')}</style>
 <link rel="stylesheet" href="styles/main.css">
 
 <meta property="og:image" content="https://agmwealth.com/assets/og-image.png">
@@ -39,7 +39,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="brand">
-      <img width="2809" height="1869" src="assets/agm-logo.png" alt="AGM Wealth logo">
+      <img width="300" height="200" decoding="async" src="assets/agm-logo-300.webp" alt="AGM Wealth logo">
       <span class="brand-lockup"><span class="brand-l1">AMFI-registered Mutual Fund Distributor</span><span class="brand-l2">ARN-124172</span></span>
     </a>
     <nav class="main-nav" id="main-nav">
@@ -123,11 +123,11 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img loading="lazy" width="2809" height="1869" src="assets/agm-logo.png" alt="AGM Wealth logo" style="height:44px; width:auto; margin-bottom:14px; filter:brightness(0) invert(1) opacity(0.9);">
+        <img width="300" height="200" decoding="async" loading="lazy" src="assets/agm-logo-300.webp" alt="AGM Wealth logo" style="height:44px; width:auto; margin-bottom:14px; filter:brightness(0) invert(1) opacity(0.9);">
         <p style="color:#C6D1C9; font-size:0.9rem; max-width:32ch;">An AMFI-registered Mutual Fund Distributor based in Jaipur, helping individuals and families build disciplined, goal-based investment portfolios.</p>
       </div>
       <div>
-        <h4>Site</h4>
+        <h4 role="heading" aria-level="3">Site</h4>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="solutions.html">Solutions</a>
@@ -136,7 +136,7 @@
         <a href="contact.html">Contact</a>
       </div>
       <div>
-        <h4>Compliance</h4>
+        <h4 role="heading" aria-level="3">Compliance</h4>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="commission-disclosures.html">Commission Disclosures</a>
         <a href="code-of-conduct.html">Code of Conduct</a>
@@ -145,7 +145,7 @@
         <a href="risk-disclaimer.html">Risk Disclaimer</a>
       </div>
       <div>
-        <h4>Get in Touch</h4>
+        <h4 role="heading" aria-level="3">Get in Touch</h4>
         <a href="tel:+918875050447">+91 88750 50447</a>
         <a href="mailto:agmwealth1@gmail.com">agmwealth1@gmail.com</a>
         <a href="https://wa.me/918875050447" target="_blank" rel="noopener">WhatsApp Us</a>
@@ -161,7 +161,7 @@
 
     <div class="footer-bottom">
       <span style="display:flex; align-items:center; gap:10px;">
-        <img loading="lazy" width="2809" height="1869" src="assets/agm-logo.png" alt="AGM Wealth" style="height:22px; width:auto; filter:brightness(0) invert(1) opacity(0.85);">
+        <img width="300" height="200" decoding="async" loading="lazy" src="assets/agm-logo-300.webp" alt="AGM Wealth" style="height:22px; width:auto; filter:brightness(0) invert(1) opacity(0.85);">
         &copy; <span id="yr"></span> AGM Wealth. All rights reserved.
       </span>
       <span>AMFI Reg. No. ARN-124172</span>
@@ -172,8 +172,8 @@
 <a href="https://wa.me/918875050447" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#128172;</a>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-<script src="scripts/main.js"></script>
+<script src="scripts/main.js" defer></script>
 
-<script src="scripts/render-content.js"></script>
+<script src="scripts/render-content.js" defer></script>
 </body>
 </html>

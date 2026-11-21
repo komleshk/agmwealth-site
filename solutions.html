@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://agmwealth.com/solutions.html">
 <meta property="og:site_name" content="AGM Wealth">
 <meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/space-grotesk-var.woff2) format('woff2')}@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/ibm-plex-sans-var.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/ibm-plex-mono-400.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/ibm-plex-mono-500.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/ibm-plex-mono-600.woff2) format('woff2')}</style>
 <link rel="stylesheet" href="styles/main.css">
 
 <meta property="og:image" content="https://agmwealth.com/assets/og-image.png">
@@ -39,7 +39,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="brand">
-      <img width="2809" height="1869" src="assets/agm-logo.png" alt="AGM Wealth logo">
+      <img width="300" height="200" decoding="async" src="assets/agm-logo-300.webp" alt="AGM Wealth logo">
       <span class="brand-lockup"><span class="brand-l1">AMFI-registered Mutual Fund Distributor</span><span class="brand-l2">ARN-124172</span></span>
     </a>
     <nav class="main-nav" id="main-nav">
@@ -84,7 +84,7 @@
     <div class="hairline-grid">
       <div class="hairline-card" id="mutual-funds">
         <div class="badge-ring">MF</div>
-        <h3>Mutual Funds &amp; SIPs</h3>
+        <h3 role="heading" aria-level="2">Mutual Funds &amp; SIPs</h3>
         <span class="reg-tag">AMFI Registered MFD &middot; ARN 124172</span>
         <p>Mutual funds pool money from many investors into a diversified, professionally managed portfolio - reducing single-stock risk and putting decisions in the hands of qualified fund managers.</p>
         <hr>
@@ -95,7 +95,7 @@
       </div>
       <div class="hairline-card" id="pms">
         <div class="badge-ring">PMS</div>
-        <h3>Portfolio Management Services</h3>
+        <h3 role="heading" aria-level="2">Portfolio Management Services</h3>
         <span class="reg-tag">APMI Registered PMS Distributor &middot; APRN 00099</span>
         <p>A portfolio managed by a SEBI-registered portfolio manager according to a defined strategy, while the underlying securities are generally held in the investor's own name.</p>
         <hr>
@@ -106,7 +106,7 @@
       </div>
       <div class="hairline-card" id="aif">
         <div class="badge-ring">AIF</div>
-        <h3>Alternative Investment Funds</h3>
+        <h3 role="heading" aria-level="2">Alternative Investment Funds</h3>
         <span class="reg-tag">AIF Distributor &middot; AIF 124172</span>
         <p>A privately pooled investment vehicle managed under a stated mandate, spanning Category I, II and III strategies across private markets, credit, real assets and market-linked approaches.</p>
         <hr>
@@ -120,7 +120,7 @@
     <div class="hairline-grid" style="border-top:none; margin-top:0;">
       <div class="hairline-card" id="sif">
         <div class="badge-ring">SIF</div>
-        <h3>Specialised Investment Funds</h3>
+        <h3 role="heading" aria-level="2">Specialised Investment Funds</h3>
         <span class="reg-tag">AMFI Registered SIF Distributor &middot; SIFD 124172</span>
         <p>A specialised mutual-fund framework permitting differentiated strategies with greater flexibility than conventional mutual funds, within its regulatory framework.</p>
         <hr>
@@ -131,7 +131,7 @@
       </div>
       <div class="hairline-card" id="bonds">
         <div class="badge-ring">BND</div>
-        <h3>Bonds &amp; Debentures</h3>
+        <h3 role="heading" aria-level="2">Bonds &amp; Debentures</h3>
         <span class="reg-tag">Fixed Income Distribution</span>
         <p>Lend money to a government body or company in exchange for periodic interest and repayment of principal at maturity - a lower-risk complement to equity holdings.</p>
         <hr>
@@ -141,7 +141,7 @@
         <p>Issuer creditworthiness, credit rating, tenure, interest rate risk, and liquidity before investing.</p>
       </div><div class="hairline-card" id="bonds">
   <div class="badge-ring">BND</div>
-  <h3>Bonds &amp; NCDs</h3>
+  <h3 role="heading" aria-level="2">Bonds &amp; NCDs</h3>
   <span class="reg-tag">Primary Market NCDs &middot; Secondary Market Bonds</span>
   <p>Fixed income access across two routes: new NCD issuances at the primary market stage, and secondary market corporate bonds sourced and priced based on live market availability - a lower-risk complement to equity holdings.</p>
   <hr>
@@ -152,7 +152,7 @@
 </div>
 <div class="hairline-card" id="fixed-deposits">
   <div class="badge-ring">FD</div>
-  <h3>Fixed Deposits</h3>
+  <h3 role="heading" aria-level="2">Fixed Deposits</h3>
   <span class="reg-tag">Bajaj Finance &middot; Shriram Finance &middot; Mahindra Finance &middot; Unity SFB &middot; Suryodaya SFB</span>
   <p>Fixed-tenure deposits offering a predetermined interest rate, distributed across a panel of corporate NBFCs and Small Finance Banks for investors seeking capital safety and assured returns.</p>
   <hr>
@@ -163,7 +163,7 @@
 </div>
 <div class="hairline-card" id="loan-against-securities">
   <div class="badge-ring">LAS</div>
-  <h3>Loan Against Securities</h3>
+  <h3 role="heading" aria-level="2">Loan Against Securities</h3>
   <span class="reg-tag">Bajaj Finance &middot; South Indian Bank &middot; DSP Finance &middot; Mirae Asset Financial Services</span>
   <p>Borrow against your existing mutual fund or securities holdings without liquidating them - a way to access short-term liquidity while your investments stay put.</p>
   <hr>
@@ -174,7 +174,7 @@
 </div>
       <div class="hairline-card" id="structured-notes">
         <div class="badge-ring">SN</div>
-        <h3>Structured Notes</h3>
+        <h3 role="heading" aria-level="2">Structured Notes</h3>
         <span class="reg-tag">Market-Linked Debentures</span>
         <p>Hybrid instruments linking returns to an underlying asset (an equity index, stock basket, or commodity) - issued by financial institutions with a defined payoff structure and tenure.</p>
         <hr>
@@ -188,7 +188,7 @@
     <div class="hairline-grid" style="border-top:none; margin-top:0;">
       <div class="hairline-card" id="life-insurance">
         <div class="badge-ring">LIFE</div>
-        <h3>Life Insurance</h3>
+        <h3 role="heading" aria-level="2">Life Insurance</h3>
         <span class="reg-tag">ICICI Prudential Life Insurance &middot; Agency ICI01334492</span>
         <p>Financial protection for your family in the event of your passing - term plans, endowment, and ULIPs depending on your goals and stage of life.</p>
         <hr>
@@ -199,7 +199,7 @@
       </div>
       <div class="hairline-card" id="health-insurance">
         <div class="badge-ring">HLTH</div>
-        <h3>Health Insurance</h3>
+        <h3 role="heading" aria-level="2">Health Insurance</h3>
         <span class="reg-tag">Care Health Insurance Limited &middot; Agency RLH20076171</span>
         <p>Coverage for hospitalisation, surgeries, and medical expenses - a foundational protection layer independent of your employer's group cover.</p>
         <hr>
@@ -210,7 +210,7 @@
       </div>
       <div class="hairline-card" id="general-insurance">
         <div class="badge-ring">GEN</div>
-        <h3>General Insurance</h3>
+        <h3 role="heading" aria-level="2">General Insurance</h3>
         <span class="reg-tag">Tata AIG General Insurance Co. Ltd &middot; Agency AIG2298010000</span>
         <p>Motor, home, and travel cover - protecting the assets and trips that sit outside your investment and life-protection planning.</p>
         <hr>
@@ -247,11 +247,11 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img loading="lazy" width="2809" height="1869" src="assets/agm-logo.png" alt="AGM Wealth logo" style="height:44px; width:auto; margin-bottom:14px; filter:brightness(0) invert(1) opacity(0.9);">
+        <img width="300" height="200" decoding="async" loading="lazy" src="assets/agm-logo-300.webp" alt="AGM Wealth logo" style="height:44px; width:auto; margin-bottom:14px; filter:brightness(0) invert(1) opacity(0.9);">
         <p style="color:#C6D1C9; font-size:0.9rem; max-width:32ch;">An AMFI-registered Mutual Fund Distributor based in Jaipur, helping individuals and families build disciplined, goal-based investment portfolios.</p>
       </div>
       <div>
-        <h4>Site</h4>
+        <h4 role="heading" aria-level="3">Site</h4>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="solutions.html">Solutions</a>
@@ -260,7 +260,7 @@
         <a href="contact.html">Contact</a>
       </div>
       <div>
-        <h4>Compliance</h4>
+        <h4 role="heading" aria-level="3">Compliance</h4>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="commission-disclosures.html">Commission Disclosures</a>
         <a href="code-of-conduct.html">Code of Conduct</a>
@@ -269,7 +269,7 @@
         <a href="risk-disclaimer.html">Risk Disclaimer</a>
       </div>
       <div>
-        <h4>Get in Touch</h4>
+        <h4 role="heading" aria-level="3">Get in Touch</h4>
         <a href="tel:+918875050447">+91 88750 50447</a>
         <a href="mailto:agmwealth1@gmail.com">agmwealth1@gmail.com</a>
         <a href="https://wa.me/918875050447" target="_blank" rel="noopener">WhatsApp Us</a>
@@ -285,7 +285,7 @@
 
     <div class="footer-bottom">
       <span style="display:flex; align-items:center; gap:10px;">
-        <img loading="lazy" width="2809" height="1869" src="assets/agm-logo.png" alt="AGM Wealth" style="height:22px; width:auto; filter:brightness(0) invert(1) opacity(0.85);">
+        <img width="300" height="200" decoding="async" loading="lazy" src="assets/agm-logo-300.webp" alt="AGM Wealth" style="height:22px; width:auto; filter:brightness(0) invert(1) opacity(0.85);">
         &copy; <span id="yr"></span> AGM Wealth. All rights reserved.
       </span>
       <span>AMFI Reg. No. ARN-124172</span>
@@ -296,8 +296,10 @@
 <a href="https://wa.me/918875050447" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">&#128172;</a>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-<script src="scripts/main.js"></script>
+<script src="scripts/main.js" defer></script>
 
-<script src="scripts/render-content.js"></script>
+<script src="scripts/render-content.js" defer></script>
+<dialog id="agm-disc" aria-labelledby="agm-disc-t"><h3 id="agm-disc-t">Before you browse</h3><p class="cv-note" style="margin:0 0 14px">A few things worth knowing before you look around.</p><h4>Market risk</h4><p>Mutual fund investments are subject to market risks. Read all scheme related documents carefully before investing. Past performance is not indicative of future results.</p><h4>Who we are</h4><p>AGM Wealth is an AMFI-registered Mutual Fund Distributor (ARN-124172) and an APMI-registered PMS Distributor (APRN 00099). We also distribute AIF and SIF products and insurance through insurer agency codes, and facilitate bonds, fixed deposits and loans against securities offered by third-party issuers and lenders. We earn commission from product providers; see our Commission Disclosures page.</p><h4>What we do not do</h4><p>We are not a SEBI-registered Investment Adviser, Research Analyst or Portfolio Manager. Nothing here should be read as advice, a recommendation or an offer.</p><h4>Your money</h4><p>Pay only to the AMC, issuer or insurer, in your own name. Never transfer money to an individual’s account, and never share passwords or OTPs.</p><p style="margin-top:18px"><button type="button" class="btn btn-primary" id="agm-ok">I understand</button> <a href="risk-disclaimer.html" style="margin-left:12px">Read the full disclaimer</a></p></dialog>
+<script>(function(){try{if(localStorage.getItem("agm-disc"))return}catch(e){}var d=document.getElementById("agm-disc");if(!d||!d.showModal)return;d.addEventListener("cancel",function(e){e.preventDefault()});document.getElementById("agm-ok").addEventListener("click",function(){try{localStorage.setItem("agm-disc","1")}catch(e){}d.close()});d.showModal()})();</script>
 </body>
 </html>

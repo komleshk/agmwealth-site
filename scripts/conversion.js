@@ -269,7 +269,7 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
     '<h4>What we do not do</h4><p>We are not a SEBI-registered Investment Adviser, Research Analyst or Portfolio Manager. Nothing here should be read as advice, a recommendation or an offer.</p>' +
     '<h4>Your money</h4><p>Pay only to the AMC, issuer or insurer, in your own name. Never transfer money to an individual&rsquo;s account, and never share passwords or OTPs.</p>';
   var seen; try { seen = localStorage.getItem('agm-disc'); } catch (e) {}
-  if (!seen && !/risk-disclaimer|privacy|terms-of-use/.test(location.pathname)) {
+  if (!seen && !document.getElementById('agm-disc') && !/risk-disclaimer|privacy|terms-of-use/.test(location.pathname)) {
     var d2 = document.createElement('dialog'); d2.id = 'agm-disc';
     d2.innerHTML = '<h3>Before you browse</h3><p class="cv-note" style="margin:0 0 14px">A few things worth knowing before you look around.</p>' + legal + '<p style="margin-top:18px"><button type="button" class="btn btn-primary" id="agm-ok">I understand</button> <a href="risk-disclaimer.html" style="margin-left:12px">Read the full disclaimer</a></p>';
     document.body.appendChild(d2);
@@ -279,7 +279,7 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   }
   var foot = $('footer.site-footer');
   if (foot) {
-    var stat = '<div class="cv-legal"><div class="container"><h4>Statutory disclosures</h4><p>AGM Wealth is registered with AMFI as a Mutual Fund Distributor (ARN-124172; SIFD-124172 for Specialised Investment Funds) and with APMI as a PMS Distributor (APRN 00099), and distributes AIFs (AIF 124172). Registration with AMFI or APMI and NISM certification do not guarantee the performance of the intermediary or assure returns to investors.</p><p>PMS, AIF and SIF are suitable only for eligible investors and carry higher risk. Bonds, fixed deposits and loans are offered by third-party issuers and lenders under their own terms and credit policies. Insurance is the subject matter of solicitation. Calculators and tools on this website are illustrations, not projections.</p><p>Please verify any distributor&rsquo;s ARN on the AMFI website before you transact. For grievances see our Grievance Redressal page; unresolved complaints can be raised on the SEBI SCORES portal (scores.sebi.gov.in).</p></div></div>';
+    var stat = '<div class="cv-legal"><div class="container"><h4 role="heading" aria-level="3">Statutory disclosures</h4><p>AGM Wealth is registered with AMFI as a Mutual Fund Distributor (ARN-124172; SIFD-124172 for Specialised Investment Funds) and with APMI as a PMS Distributor (APRN 00099), and distributes AIFs (AIF 124172). Registration with AMFI or APMI and NISM certification do not guarantee the performance of the intermediary or assure returns to investors.</p><p>PMS, AIF and SIF are suitable only for eligible investors and carry higher risk. Bonds, fixed deposits and loans are offered by third-party issuers and lenders under their own terms and credit policies. Insurance is the subject matter of solicitation. Calculators and tools on this website are illustrations, not projections.</p><p>Please verify any distributor&rsquo;s ARN on the AMFI website before you transact. For grievances see our Grievance Redressal page; unresolved complaints can be raised on the SEBI SCORES portal (scores.sebi.gov.in).</p></div></div>';
     var fb = $('.footer-bottom', foot); if (fb) fb.insertAdjacentHTML('beforebegin', stat); else foot.insertAdjacentHTML('beforeend', stat);
   }
 
@@ -369,5 +369,18 @@ if (CFG.accessKey) data.access_key = CFG.accessKey;
   ['.cv-numbers', '.cv-strip', '#goals', '#offerings', '#why', '#reading-room', '#founder', '#faq', '.cv-cta'].forEach(function (s) {
     var all = $$(s); if (all.length > 1) all.forEach(function (el) { if (!el.hasAttribute('data-pre')) el.remove(); });
   });
+
+  /* ---- market ticker: load after the page, so it does not compete with first paint ---- */
+  (function () {
+    var tv = $('script[data-src*="tradingview"]'); if (!tv) return; var go = false;
+    function load() {
+      if (go) return; go = true;
+      var s = document.createElement('script'); s.async = true; s.src = tv.getAttribute('data-src'); s.text = tv.textContent;
+      tv.parentNode.insertBefore(s, tv); tv.remove();
+    }
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (e) { window.addEventListener(e, load, { once: true, passive: true }); });
+    function later() { setTimeout(load, 2500); }
+    if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
+  })();
 })();
 
